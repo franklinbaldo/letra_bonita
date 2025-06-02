@@ -1,6 +1,9 @@
 # Letra Bonita - Gerador de Folhas de Caligrafia
 
 
+
+**Demo ao Vivo:** [Acesse o Letra Bonita aqui!](https://franklinbaldo.github.io/letra_bonita/)
+
 ## Descrição do Projeto
 
 O "Letra Bonita" é um aplicativo web interativo, moderno e intuitivo, desenvolvido para auxiliar na prática da caligrafia. Ele permite que usuários de todos os níveis criem e imprimam folhas de caligrafia personalizadas, com controle total sobre cada aspecto da sua sessão de prática. Seja para aprimorar a letra, experimentar novos estilos ou simplesmente relaxar, o Letra Bonita oferece as ferramentas necessárias.
@@ -60,7 +63,7 @@ O "Letra Bonita" é um aplicativo web interativo, moderno e intuitivo, desenvolv
     ```
 3.  **Abra no Navegador:**
     * Simplesmente abra o arquivo `index.html` em seu navegador web (ex: `file:///caminho/para/letra_bonita/index.html`).
-    * Para garantir que as funcionalidades que dependem de APIs e `localStorage` funcionem sem restrições de CORS (Cross-Origin Resource Sharing) em todos os navegadores, é recomendado rodar um servidor web local simples (ex: usando a extensão "Live Server" no VS Code, ou comandos como `npx live-server` ou `python -m http.server`).
+    * Para garantir que as funcionalidades que dependem de APIs e `localStorage` funcionem sem restrições de CORS (Cross-Origin Resource Sharing) em alguns navegadores, é recomendado rodar um servidor web local simples (ex: usando a extensão "Live Server" no VS Code, ou comandos como `npx live-server` ou `python -m http.server`).
 
 ## Como Publicar no GitHub Pages
 
