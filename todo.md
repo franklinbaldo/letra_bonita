@@ -27,7 +27,7 @@ This document lists potential improvements for the Letra Bonita application's Us
     - [ ] The "Gerando citações..." and "Erro ao gerar citações" messages are good. Ensure such feedback is consistently applied for any other potentially long-running or error-prone operations (though there aren't many others currently).
     - [ ] For quote generation errors, provide more specific error messages if possible (e.g., "Invalid API Key", "Network Error", "Quota Exceeded"). The current generic message is a good start.
 - **Text Area for Practice Text:**
-    - [ ] Consider adding a "Clear Text" button for the practice text area.
+    - [x] Consider adding a "Clear Text" button for the practice text area.
     - [ ] Perhaps offer a few sample texts (e.g., pangrams, classic calligraphy quotes) directly in the UI that users can load with one click, in addition to the AI generation.
 
 ## Preview Area
@@ -35,9 +35,9 @@ This document lists potential improvements for the Letra Bonita application's Us
 - **Zoom/Pan Functionality:**
     - [ ] For complex calligraphy or very small text, consider adding basic zoom and pan controls for the SVG preview area. This might be an advanced feature.
 - **"Texto continua em páginas seguintes..." Message:**
-    - [ ] Make this message more prominent or ensure it's always visible when overflow occurs, perhaps by styling it more like an alert.
+    - [x] Make this message more prominent or ensure it's always visible when overflow occurs, perhaps by styling it more like an alert.
 - **Clarity of Print Options:**
-    - [ ] The distinction between "Imprimir Folha" (prints the current browser window) and "Abrir SVG para Imprimir" (opens a new, clean SVG for printing) is crucial. Ensure the UI text clearly explains the benefit of the "Abrir SVG" option (e.g., "Melhor Qualidade de Impressão" or "Impressão Limpa - Recomendado"). The README explains this well, but the UI could be more direct.
+    - [x] The distinction between "Imprimir Folha" (prints the current browser window) and "Abrir SVG para Imprimir" (opens a new, clean SVG for printing) is crucial. Ensure the UI text clearly explains the benefit of the "Abrir SVG" option (e.g., "Melhor Qualidade de Impressão" or "Impressão Limpa - Recomendado"). The README explains this well, but the UI could be more direct.
 
 ## Font Selection
 
@@ -86,7 +86,7 @@ The modern SEO landscape emphasizes user experience and valuable content, which 
     - [ ] Ensure canonical links (`<link rel="canonical">`) are correctly set for any dynamically generated routes/views.
 - [ ] **Automated Sitemaps & Robots.txt:**
     - [ ] Set up automatic generation of `sitemap.xml` during the build process.
-    - [ ] Create/update `robots.txt` with appropriate directives (e.g., disallow crawling of preview-only URLs if they exist).
+    - [x] Create/update `robots.txt` with appropriate directives (e.g., disallow crawling of preview-only URLs if they exist). (Basic robots.txt created)
 
 **b. Structured Data (Schema.org)**
 - [ ] **Implement `EducationalResource` Schema:**
@@ -124,10 +124,10 @@ The modern SEO landscape emphasizes user experience and valuable content, which 
 
 ### 2. Immediate Technical SEO Checklist (as per user suggestion)
 - [ ] **Optimized `<head>`:**
-    - [ ] Ensure page ` <title>` is concise (≤ 60 characters).
-    - [ ] Write compelling ` <meta name="description">` (≤ 155 characters).
+    - [x] Ensure page ` <title>` is concise (≤ 60 characters).
+    - [x] Write compelling ` <meta name="description">` (≤ 155 characters).
 - [ ] **Resource Prioritization:**
-    - [ ] Use `<link rel="preconnect">` for Google Fonts CDN.
+    - [x] Use `<link rel="preconnect">` for Google Fonts CDN.
     - [ ] Investigate `fetchpriority="high"` for the main generated SVG content if applicable.
 - [ ] **Schema Integration:**
     - [ ] Add `FAQPage` schema to the footer of main landing pages.
@@ -194,8 +194,8 @@ Align revenue models with the user funnel, leveraging organic traffic.
 - [ ] **Core Web Vitals & PWA-Friendly Setup:**
     - [ ] Investigate migrating to Vite.
 **Weeks 3-4: SEO Basics**
-- [ ] **Sitemap & Robots.txt:** Implement auto-generation.
-- [ ] **Meta Tags:** Ensure OpenGraph & Twitter card meta tags are in place.
+- [x] **Sitemap & Robots.txt:** Implement auto-generation. (Basic static sitemap.xml and robots.txt created; auto-generation pending)
+- [x] **Meta Tags:** Ensure OpenGraph & Twitter card meta tags are in place.
 **Weeks 5-6: Content & Schema**
 - [ ] **Landing Pages (MVP):** Create initial landing pages for "gerador de caligrafia" (PT/EN).
 - [ ] **Schema:** Implement `HowTo` schema on these pages.
@@ -215,4 +215,4 @@ Align revenue models with the user funnel, leveraging organic traffic.
     - [ ] *Dependency: Basic multi-user management concept or dashboard.*
 
 ### 5. Newsletter Signup (Immediate Action from Checklist)
-- [ ] **Call to Action:** Add a banner/section: "Assine a newsletter e receba 3 PDFs premium grátis".
+- [x] **Call to Action:** Add a banner/section: "Assine a newsletter e receba 3 PDFs premium grátis". (Placeholder banner added)
