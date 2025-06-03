@@ -105,6 +105,7 @@
 "A verdadeira medida de um homem não se vê na forma como ele se comporta em momentos de conforto e conveniência, mas em como ele se mantém em tempos de controvérsia e desafio." - Martin Luther King Jr.
 "O universo não é obrigado a fazer sentido para você." - Neil deGrasse Tyson
                 </textarea>
+                <button id="clearPracticeTextBtn" class="mt-2 w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out">Limpar Texto</button>
             </div>
 
             <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
@@ -221,16 +222,16 @@
             </div>
 
             <button id="printSheetBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
-                Imprimir Folha
+                Imprimir Pré-visualização Atual
             </button>
             <button id="openSvgPrintBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 mt-4">
-                Abrir SVG para Imprimir
+                Abrir SVG (Impressão de Qualidade)
             </button>
         </div>
 
         <div class="lg:w-2/3 w-full bg-gray-200 rounded-xl shadow-xl p-4 flex items-center justify-center overflow-hidden relative preview-section">
             <div id="preview-page-container" class="bg-white shadow-md rounded-lg overflow-hidden relative border border-gray-300">
-                <p id="overflowMessage" class="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm text-gray-500 hidden">Texto continua em páginas seguintes...</p>
+                <p id="overflowMessage" class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-gray-700 bg-yellow-100 border border-yellow-300 px-3 py-1 rounded-md shadow hidden">Texto continua em páginas seguintes...</p>
             </div>
         </div>
     </div>
@@ -257,6 +258,7 @@
         const printSheetBtn = document.getElementById('printSheetBtn');
         const openSvgPrintBtn = document.getElementById('openSvgPrintBtn');
         const overflowMessage = document.getElementById('overflowMessage');
+        const clearPracticeTextBtn = document.getElementById('clearPracticeTextBtn');
 
         // Elementos para a funcionalidade de IA e API Key
         const geminiApiKeyInput = document.getElementById('geminiApiKeyInput');
@@ -870,6 +872,12 @@
 
         // Evento para o novo botão de geração de citações
         generateQuotesBtn.addEventListener('click', generateQuotes);
+
+        // Evento para o botão Limpar Texto
+        clearPracticeTextBtn.addEventListener('click', () => {
+            practiceText.value = ""; // Clear the textarea
+            updatePreview(); // Update the SVG preview
+        });
 
         // Chamar a função de atualização inicial para renderizar o estado padrão e carregar a chave de API
         loadApiKey(); // Carregar chave ao iniciar
