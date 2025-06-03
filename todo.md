@@ -68,3 +68,151 @@ This document lists potential improvements for the Letra Bonita application's Us
     - [ ] Consider adding a small "info" icon next to "Tema das Citações" that explains what happens if left blank (philosophical quotes).
 
 This list provides a starting point for discussion and prioritization of UX/UI enhancements.
+
+## SEO Strategy (2025+)
+
+The modern SEO landscape emphasizes user experience and valuable content, which aligns well with monetization efforts by driving targeted organic traffic.
+
+### 1. Key SEO Pillars & Actions
+
+**a. Technical SEO**
+- [ ] **Core Web Vitals & Page UX:**
+    - [ ] Maintain LCP < 2.5s.
+    - [ ] Ensure CLS < 0.1.
+    - [ ] Investigate using Vite for the build process.
+    - [ ] Implement lazy-loading for fonts.
+- [ ] **Crawlable PWA (Progressive Web App):**
+    - [ ] Configure service worker with a stale-while-revalidate caching strategy.
+    - [ ] Ensure canonical links (`<link rel="canonical">`) are correctly set for any dynamically generated routes/views.
+- [ ] **Automated Sitemaps & Robots.txt:**
+    - [ ] Set up automatic generation of `sitemap.xml` during the build process.
+    - [ ] Create/update `robots.txt` with appropriate directives (e.g., disallow crawling of preview-only URLs if they exist).
+
+**b. Structured Data (Schema.org)**
+- [ ] **Implement `EducationalResource` Schema:**
+    - [ ] For each generated worksheet type, include properties like `title`, `inLanguage`, `skillLevel`.
+- [ ] **Implement `HowTo` Schema:**
+    - [ ] For blog posts or guides (e.g., "How to improve cursive writing").
+- [ ] **Implement `FAQPage` Schema:**
+    - [ ] Embed in relevant landing pages that address common user questions.
+- [ ] **Consistency:** Ensure data in schema matches visible HTML content.
+
+**c. Content Strategy**
+- [ ] **Keyword Cluster Development:**
+    - [ ] Target keywords like "caligrafia infantil", "custom handwriting worksheet", "gerador de linhas pautadas", "free printable cursive sheets".
+- [ ] **Landing Pages:**
+    - [ ] Create dedicated landing pages (1000-1500 words) for each keyword cluster.
+    - [ ] Embed SVG examples of worksheets directly within these pages.
+- [ ] **Blog Content:**
+    - [ ] Publish bi-weekly blog posts with tutorials, short videos.
+    - [ ] Offer download-gated PDFs (e.g., "7 Days of Calligraphy" ebook) as lead magnets to capture emails.
+
+**d. E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)**
+- [ ] **"About Us" Page:**
+    - [ ] Highlight any relevant experience in education, design, or calligraphy.
+- [ ] **External Links & Collaborations:**
+    - [ ] Cite research on graphomotor skills or pedagogy.
+    - [ ] Invite educators or calligraphers for guest posts.
+
+**e. Internationalization (I18N)**
+- [ ] **URL Structure:**
+    - [ ] Plan for language-specific paths (e.g., `/pt/`, `/en/`, `/es/`).
+- [ ] **`hreflang` Tags:**
+    - [ ] Implement `hreflang` attributes for multilingual content.
+- [ ] **Translation:**
+    - [ ] Prioritize human translation for top 10% of content; consider machine translation for the rest initially.
+
+### 2. Immediate Technical SEO Checklist (as per user suggestion)
+- [ ] **Optimized `<head>`:**
+    - [ ] Ensure page ` <title>` is concise (≤ 60 characters).
+    - [ ] Write compelling ` <meta name="description">` (≤ 155 characters).
+- [ ] **Resource Prioritization:**
+    - [ ] Use `<link rel="preconnect">` for Google Fonts CDN.
+    - [ ] Investigate `fetchpriority="high"` for the main generated SVG content if applicable.
+- [ ] **Schema Integration:**
+    - [ ] Add `FAQPage` schema to the footer of main landing pages.
+- [ ] **Robots.txt:**
+    - [ ] Specifically block any preview-only or parameter-driven URLs that could cause duplicate content issues (e.g., `/generator.html?*preview=true`).
+
+## Monetization Strategy
+
+Align revenue models with the user funnel, leveraging organic traffic.
+
+### 1. Monetization Models
+
+**a. Freemium-Premium**
+- [ ] **Free Tier:** Offer a limited set of features (e.g., 5 fonts, 3 basic layouts).
+- [ ] **Plus Plan (Subscription):**
+    - [ ] Suggested price: R$ 9/month (or local equivalent).
+    - [ ] Features: Extra fonts, multi-page PDF export, unlimited history/saved settings.
+    - [ ] Offer an annual discount.
+- [ ] **Payment Integration:** Use Stripe or Mercado Pago.
+
+**b. Pay-per-Export (Microtransactions)**
+- [ ] **Credit Packs:** Sell bundles of exports (e.g., 10 PDF exports = R$ 7).
+- [ ] Target sporadic users (e.g., parents).
+
+**c. Ads (Interactive & Contextual)**
+- [ ] **Placement:** Only on the preview screen/generation page, never in the final downloaded PDF.
+- [ ] **Formats:** Explore new interactive/quiz ad formats from AdSense (if available and relevant for 2025+) to maintain educational context.
+
+**d. Affiliates & Bundles**
+- [ ] **"Recommended Materials" Section:**
+    - [ ] Link to calligraphy supplies (pencils, notebooks) on Amazon or local stationery stores via affiliate links.
+
+**e. B2B Licenses (For Schools/Institutions)**
+- [ ] **School Dashboard:**
+    - [ ] Features: Multi-user accounts, custom branding options.
+- [ ] **Pricing:** Per student/year.
+- [ ] **Support:** Offer priority support for B2B clients.
+
+### 2. Suggested User Funnel
+
+1.  **Top of Funnel (Attraction - SEO):**
+    - [ ] Drive traffic via long-tail keyword-optimized landing pages.
+    - [ ] Offer a free lead magnet (e.g., "7 Dias de Caligrafia" ebook) to capture email addresses.
+2.  **Middle of Funnel (Nurturing):**
+    - [ ] Implement an email drip campaign with video tutorials, success stories.
+3.  **Bottom of Funnel (Conversion):**
+    - [ ] Clear Call-to-Actions (CTAs) for the Plus Plan or school packages.
+
+### 3. Metrics & Revenue Stack
+
+**a. Key Performance Indicators (KPIs)**
+-   **Attraction:** Organic impressions, Click-Through Rate (CTR), top-10 keyword rankings (Track with Google Search Console, Ahrefs/SEMrush).
+-   **Activation:** Worksheet generation events, signup starts, signup completions (Track with GA4 + custom events).
+-   **Revenue:** Average Revenue Per User (ARPU), Monthly Recurring Revenue (MRR), Churn rate < 5% (Track with Stripe/Mercado Pago dashboards).
+-   **Retention:** Percentage of users generating >3 PDFs/month (Track with PostHog/Heap + email marketing platform).
+-   **Ads:** eCPM, Viewability > 70% (Track with Google Ad Manager).
+
+**b. Tooling Integration Note:**
+- [ ] Consider implementing webhooks from Stripe/Mercado Pago to PostHog/Heap to map revenue data directly to user journeys in GA4.
+
+### 4. Proposed 90-Day Roadmap (SEO & Monetization MVP)
+
+**Weeks 1-2: Foundation**
+- [ ] **Core Web Vitals & PWA-Friendly Setup:**
+    - [ ] Investigate migrating to Vite.
+**Weeks 3-4: SEO Basics**
+- [ ] **Sitemap & Robots.txt:** Implement auto-generation.
+- [ ] **Meta Tags:** Ensure OpenGraph & Twitter card meta tags are in place.
+**Weeks 5-6: Content & Schema**
+- [ ] **Landing Pages (MVP):** Create initial landing pages for "gerador de caligrafia" (PT/EN).
+- [ ] **Schema:** Implement `HowTo` schema on these pages.
+    - [ ] *Dependency: Keyword research.*
+**Weeks 7-8: Monetization MVP (Plus Plan)**
+- [ ] **Plus Plan Implementation:** Develop features & payment gateway integration (Stripe/Mercado Pago).
+    - [ ] *Dependency: Stripe/Mercado Pago account setup.*
+**Weeks 9-10: Ads MVP**
+- [ ] **Interactive Ads Setup:** Configure ads on the preview page.
+    - [ ] *Dependency: AdSense approval (if using AdSense).*
+**Weeks 11-12: Lead Nurturing**
+- [ ] **Email Lead Magnet & Drip Campaign:**
+    - [ ] Create ebook and set up initial email sequence (e.g., using Beehiiv/ConvertKit).
+    - [ ] *Dependency: Active blog or content creation process.*
+**Week 13: B2B MVP**
+- [ ] **School Package (MVP Launch):** Define and launch a basic version.
+    - [ ] *Dependency: Basic multi-user management concept or dashboard.*
+
+### 5. Newsletter Signup (Immediate Action from Checklist)
+- [ ] **Call to Action:** Add a banner/section: "Assine a newsletter e receba 3 PDFs premium grátis".
