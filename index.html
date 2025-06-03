@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letra Bonita - Gerador de Folhas de Caligrafia Online com IA</title>
-    <meta name="description" content="Gere folhas de caligrafia personalizadas online com o Letra Bonita. Escolha fontes, ajuste linhas-guia e preencha com citações de IA para praticar sua escrita de forma fácil e interativa.">
+    <title>Letra Bonita: Gerador de Caligrafia Online com IA</title>
+    <meta name="description" content="Crie folhas de caligrafia online com o Letra Bonita. Escolha fontes, linhas-guia e pratique sua escrita de forma fácil e interativa com IA.">
+
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="Letra Bonita: Gerador de Caligrafia Online com IA">
+    <meta property="og:description" content="Crie folhas de caligrafia online com o Letra Bonita. Escolha fontes, linhas-guia e pratique sua escrita de forma fácil e interativa com IA.">
+    <meta property="og:image" content="https://franklinbaldo.github.io/letra_bonita/assets/og-image.png"> <!-- Placeholder Image -->
+    <meta property="og:url" content="https://franklinbaldo.github.io/letra_bonita/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image"> <!-- Use summary_large_image for a more prominent image -->
+    <meta name="twitter:title" content="Letra Bonita: Gerador de Caligrafia Online com IA">
+    <meta name="twitter:description" content="Crie folhas de caligrafia online com o Letra Bonita. Escolha fontes, linhas-guia e pratique sua escrita de forma fácil e interativa com IA.">
+    <meta name="twitter:image" content="https://franklinbaldo.github.io/letra_bonita/assets/og-image.png"> <!-- Placeholder Image -->
+    <!-- Optional: Twitter site attribution, if the project had a Twitter handle -->
+    <!-- <meta name="twitter:site" content="@YourTwitterHandle"> -->
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Allura&family=Pacifico&family=Roboto&family=Inter:wght@400;600;700&family=Caveat&family=Indie+Flower&family=Shadows+Into+Light&family=Permanent+Marker&display=swap" rel="stylesheet">
     
     <style>
@@ -105,6 +123,7 @@
 "A verdadeira medida de um homem não se vê na forma como ele se comporta em momentos de conforto e conveniência, mas em como ele se mantém em tempos de controvérsia e desafio." - Martin Luther King Jr.
 "O universo não é obrigado a fazer sentido para você." - Neil deGrasse Tyson
                 </textarea>
+                <button id="clearPracticeTextBtn" class="mt-2 w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out">Limpar Texto</button>
             </div>
 
             <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
@@ -220,17 +239,27 @@
                 </div>
             </div>
 
+            <!-- Newsletter Signup Placeholder -->
+            <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5 rounded-xl border border-gray-200 shadow-lg text-white text-center space-y-3">
+                <h2 class="text-xl font-semibold">Fique por Dentro!</h2>
+                <p class="text-sm">Assine a newsletter e receba dicas, novidades e 3 PDFs premium grátis!</p>
+                <input type="email" placeholder="seu.email@exemplo.com" class="w-full p-3 border border-gray-300 rounded-lg text-gray-800 focus:ring-yellow-400 focus:border-yellow-400 transition duration-150 ease-in-out" disabled>
+                <button class="w-full bg-yellow-400 hover:bg-yellow-500 text-indigo-700 font-bold py-2 px-4 rounded-lg shadow-md transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:ring-opacity-50" disabled>Assinar (Em Breve)</button>
+                <p class="text-xs opacity-80">Funcionalidade em desenvolvimento.</p>
+            </div>
+            <!-- End Newsletter Signup Placeholder -->
+
             <button id="printSheetBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
-                Imprimir Folha
+                Imprimir Pré-visualização Atual
             </button>
             <button id="openSvgPrintBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 mt-4">
-                Abrir SVG para Imprimir
+                Abrir SVG (Impressão de Qualidade)
             </button>
         </div>
 
         <div class="lg:w-2/3 w-full bg-gray-200 rounded-xl shadow-xl p-4 flex items-center justify-center overflow-hidden relative preview-section">
             <div id="preview-page-container" class="bg-white shadow-md rounded-lg overflow-hidden relative border border-gray-300">
-                <p id="overflowMessage" class="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm text-gray-500 hidden">Texto continua em páginas seguintes...</p>
+                <p id="overflowMessage" class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-gray-700 bg-yellow-100 border border-yellow-300 px-3 py-1 rounded-md shadow hidden">Texto continua em páginas seguintes...</p>
             </div>
         </div>
     </div>
@@ -257,6 +286,7 @@
         const printSheetBtn = document.getElementById('printSheetBtn');
         const openSvgPrintBtn = document.getElementById('openSvgPrintBtn');
         const overflowMessage = document.getElementById('overflowMessage');
+        const clearPracticeTextBtn = document.getElementById('clearPracticeTextBtn');
 
         // Elementos para a funcionalidade de IA e API Key
         const geminiApiKeyInput = document.getElementById('geminiApiKeyInput');
@@ -870,6 +900,12 @@
 
         // Evento para o novo botão de geração de citações
         generateQuotesBtn.addEventListener('click', generateQuotes);
+
+        // Evento para o botão Limpar Texto
+        clearPracticeTextBtn.addEventListener('click', () => {
+            practiceText.value = ""; // Clear the textarea
+            updatePreview(); // Update the SVG preview
+        });
 
         // Chamar a função de atualização inicial para renderizar o estado padrão e carregar a chave de API
         loadApiKey(); // Carregar chave ao iniciar
