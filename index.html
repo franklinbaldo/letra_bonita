@@ -1,108 +1,173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Letra Bonita: Gerador de Caligrafia Online com IA</title>
-    <meta name="description" content="Crie folhas de caligrafia online com o Letra Bonita. Escolha fontes, linhas-guia e pratique sua escrita de forma fácil e interativa com IA.">
+    <meta
+      name="description"
+      content="Crie folhas de caligrafia online com o Letra Bonita. Escolha fontes, linhas-guia e pratique sua escrita de forma fácil e interativa com IA."
+    />
 
     <!-- OpenGraph Meta Tags -->
-    <meta property="og:title" content="Letra Bonita: Gerador de Caligrafia Online com IA">
-    <meta property="og:description" content="Crie folhas de caligrafia online com o Letra Bonita. Escolha fontes, linhas-guia e pratique sua escrita de forma fácil e interativa com IA.">
-    <meta property="og:image" content="https://franklinbaldo.github.io/letra_bonita/assets/og-image.png"> <!-- Placeholder Image -->
-    <meta property="og:url" content="https://franklinbaldo.github.io/letra_bonita/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
+    <meta
+      property="og:title"
+      content="Letra Bonita: Gerador de Caligrafia Online com IA"
+    />
+    <meta
+      property="og:description"
+      content="Crie folhas de caligrafia online com o Letra Bonita. Escolha fontes, linhas-guia e pratique sua escrita de forma fácil e interativa com IA."
+    />
+    <meta
+      property="og:image"
+      content="https://franklinbaldo.github.io/letra_bonita/assets/og-image.png"
+    />
+    <!-- Placeholder Image -->
+    <meta
+      property="og:url"
+      content="https://franklinbaldo.github.io/letra_bonita/"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
 
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image"> <!-- Use summary_large_image for a more prominent image -->
-    <meta name="twitter:title" content="Letra Bonita: Gerador de Caligrafia Online com IA">
-    <meta name="twitter:description" content="Crie folhas de caligrafia online com o Letra Bonita. Escolha fontes, linhas-guia e pratique sua escrita de forma fácil e interativa com IA.">
-    <meta name="twitter:image" content="https://franklinbaldo.github.io/letra_bonita/assets/og-image.png"> <!-- Placeholder Image -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Use summary_large_image for a more prominent image -->
+    <meta
+      name="twitter:title"
+      content="Letra Bonita: Gerador de Caligrafia Online com IA"
+    />
+    <meta
+      name="twitter:description"
+      content="Crie folhas de caligrafia online com o Letra Bonita. Escolha fontes, linhas-guia e pratique sua escrita de forma fácil e interativa com IA."
+    />
+    <meta
+      name="twitter:image"
+      content="https://franklinbaldo.github.io/letra_bonita/assets/og-image.png"
+    />
+    <!-- Placeholder Image -->
     <!-- Optional: Twitter site attribution, if the project had a Twitter handle -->
     <!-- <meta name="twitter:site" content="@YourTwitterHandle"> -->
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Allura&family=Pacifico&family=Roboto&family=Inter:wght@400;600;700&family=Caveat&family=Indie+Flower&family=Shadows+Into+Light&family=Permanent+Marker&display=swap" rel="stylesheet">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6440807411348754"
-     crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Allura&family=Pacifico&family=Roboto&family=Inter:wght@400;600;700&family=Caveat&family=Indie+Flower&family=Shadows+Into+Light&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6440807411348754"
+      crossorigin="anonymous"
+    ></script>
     <style>
-        /* Base font for the entire body */
+      /* Base font for the entire body */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Classes for HTML preview page sizes (used to set initial SVG dimensions) */
+      .page-a4-portrait {
+        width: 210mm;
+        height: 297mm;
+      }
+      .page-a4-landscape {
+        width: 297mm;
+        height: 210mm;
+      }
+      .page-letter-portrait {
+        width: 215.9mm;
+        height: 279.4mm;
+      }
+      .page-letter-landscape {
+        width: 279.4mm;
+        height: 215.9mm;
+      }
+
+      /* Hide default arrows for input type="number" */
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      /* Print-specific styles for the main application window */
+      @media print {
         body {
-            font-family: 'Inter', sans-serif;
+          background-color: #fff;
+          margin: 0;
+          padding: 0;
         }
-
-        /* Classes for HTML preview page sizes (used to set initial SVG dimensions) */
-        .page-a4-portrait { width: 210mm; height: 297mm; }
-        .page-a4-landscape { width: 297mm; height: 210mm; }
-        .page-letter-portrait { width: 215.9mm; height: 279.4mm; }
-        .page-letter-landscape { width: 279.4mm; height: 215.9mm; }
-
-        /* Hide default arrows for input type="number" */
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
+        .container {
+          max-width: none !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 100% !important;
         }
-        input[type="number"] {
-            -moz-appearance: textfield;
+        .control-panel {
+          display: none; /* Hide the control panel */
         }
-
-        /* Print-specific styles for the main application window */
-        @media print {
-            body {
-                background-color: #fff;
-                margin: 0;
-                padding: 0;
-            }
-            .container {
-                max-width: none !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                width: 100% !important;
-            }
-            .control-panel {
-                display: none; /* Hide the control panel */
-            }
-            .preview-section {
-                width: 100% !important;
-                height: 100% !important; /* Ensure it takes full height */
-                padding: 0 !important;
-                display: block !important;
-                box-shadow: none !important;
-                background-color: #fff !important;
-            }
-            #preview-page-container {
-                /* For print, we want it to match the actual paper size using CSS variables */
-                width: var(--print-page-width);
-                height: var(--print-page-height);
-                margin: 0;
-                padding: 0;
-                display: block; /* No flexbox for print layout, just block */
-                box-shadow: none;
-                border: none;
-            }
-            #calligraphy-svg {
-                /* SVG should fill its container which is now sized to paper */
-                width: 100%;
-                height: 100%;
-                display: block;
-            }
+        .preview-section {
+          width: 100% !important;
+          height: 100% !important; /* Ensure it takes full height */
+          padding: 0 !important;
+          display: block !important;
+          box-shadow: none !important;
+          background-color: #fff !important;
         }
+        #preview-page-container {
+          /* For print, we want it to match the actual paper size using CSS variables */
+          width: var(--print-page-width);
+          height: var(--print-page-height);
+          margin: 0;
+          padding: 0;
+          display: block; /* No flexbox for print layout, just block */
+          box-shadow: none;
+          border: none;
+        }
+        #calligraphy-svg {
+          /* SVG should fill its container which is now sized to paper */
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+      }
     </style>
-</head>
-<body class="bg-gray-100 min-h-screen p-4 lg:p-8 flex items-start justify-center">
+  </head>
+  <body
+    class="bg-gray-100 min-h-screen p-4 lg:p-8 flex items-start justify-center"
+  >
     <div class="container mx-auto flex flex-col lg:flex-row gap-8 max-w-7xl">
-        <div class="lg:w-1/3 w-full bg-white rounded-xl shadow-2xl p-6 space-y-6 control-panel">
-            <h1 class="text-3xl font-bold text-gray-800 mb-6">Gerador de Folhas de Caligrafia</h1>
-            <p class="text-lg text-gray-700 mb-6 text-center">Transforme sua escrita com o Letra Bonita. Crie e imprima folhas de caligrafia personalizadas para aprimorar sua caligrafia.</p>
+      <div
+        class="lg:w-1/3 w-full bg-white rounded-xl shadow-2xl p-6 space-y-6 control-panel"
+      >
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">
+          Gerador de Folhas de Caligrafia
+        </h1>
+        <p class="text-lg text-gray-700 mb-6 text-center">
+          Transforme sua escrita com o Letra Bonita. Crie e imprima folhas de
+          caligrafia personalizadas para aprimorar sua caligrafia.
+        </p>
 
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
-                <h2 class="text-xl font-semibold text-gray-700 mb-3">Texto de Prática</h2>
-                <label for="practiceText" class="block text-sm font-medium text-gray-700 mb-1">Insira o seu texto de prática aqui:</label>
-                <textarea id="practiceText" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out" rows="6" placeholder="A prática leva à perfeição.&#10;Escreva o seu nome.&#10;Abcdefghijklmnopqrstuvwxyz">
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-3">
+            Texto de Prática
+          </h2>
+          <label
+            for="practiceText"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Insira o seu texto de prática aqui:</label
+          >
+          <textarea
+            id="practiceText"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            rows="6"
+            placeholder="A prática leva à perfeição.&#10;Escreva o seu nome.&#10;Abcdefghijklmnopqrstuvwxyz"
+          >
 "A vida é uma tragédia quando vista de perto, mas uma comédia quando vista de longe." - Charlie Chaplin
 "O homem está condenado a ser livre; porque uma vez lançado ao mundo, ele é responsável por tudo o que faz." - Jean-Paul Sartre
 "A única verdadeira sabedoria é saber que você não sabe nada." - Sócrates
@@ -123,301 +188,586 @@
 "A vida é muito simples, mas insistimos em torná-la complicada." - Confúcio
 "A verdadeira medida de um homem não se vê na forma como ele se comporta em momentos de conforto e conveniência, mas em como ele se mantém em tempos de controvérsia e desafio." - Martin Luther King Jr.
 "O universo não é obrigado a fazer sentido para você." - Neil deGrasse Tyson
-                </textarea>
-                <button id="clearPracticeTextBtn" class="mt-2 w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out">Limpar Texto</button>
-            </div>
-
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
-                <h2 class="text-xl font-semibold text-gray-700 mb-3">Configurações da API Gemini</h2>
-                <label for="geminiApiKeyInput" class="block text-sm font-medium text-gray-700 mb-1">Sua Chave de API Gemini:</label>
-                <input type="password" id="geminiApiKeyInput" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out mb-2" placeholder="Insira sua chave de API aqui">
-                <div class="flex gap-2 mb-2">
-                    <button id="saveApiKeyBtn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out">Salvar</button>
-                    <button id="clearApiKeyBtn" class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out">Limpar</button>
-                </div>
-                <p id="apiKeyStatus" class="text-sm text-gray-600 italic">Nenhuma chave carregada.</p>
-                <p class="text-xs text-gray-500 mt-2">
-                    <strong class="text-red-600">Atenção:</strong> Armazenar chaves de API no navegador não é totalmente seguro para aplicações de produção. Use com cautela.
-                </p>
-                <p class="text-xs text-gray-500 mt-2">
-                    Você pode obter uma chave de API gratuita no Google AI Studio: <a href="https://aistudio.google.com/apikey" target="_blank" class="text-blue-600 hover:underline">aistudio.google.com/apikey</a>
-                </p>
-            </div>
-
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
-                <h2 class="text-xl font-semibold text-gray-700 mb-3">Gerador de Citações (IA)</h2>
-                <label for="quoteTheme" class="block text-sm font-medium text-gray-700 mb-1">Tema das Citações (ex: "amor", "sucesso", "natureza"):</label>
-                <input type="text" id="quoteTheme" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out mb-3" placeholder="Deixe em branco para citações filosóficas">
-                <button id="generateQuotesBtn" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
-                    Gerar Citações
-                </button>
-                <p id="loadingQuotes" class="text-center text-gray-600 mt-2 hidden">Gerando citações...</p>
-                <p id="errorQuotes" class="text-center text-red-500 mt-2 hidden">Erro ao gerar citações.</p>
-            </div>
-
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
-                <h2 class="text-xl font-semibold text-gray-700 mb-3">Definições de Fonte</h2>
-                <div class="mb-4">
-                    <label for="fontFamily" class="block text-sm font-medium text-gray-700 mb-1">Família da Fonte:</label>
-                    <select id="fontFamily" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
-                        <option value="Dancing Script" style="font-family: 'Dancing Script';">Dancing Script</option>
-                        <option value="Great Vibes" style="font-family: 'Great Vibes';">Great Vibes</option>
-                        <option value="Allura" style="font-family: 'Allura';">Allura</option>
-                        <option value="Pacifico" style="font-family: 'Pacifico';">Pacifico</option>
-                        <option value="Caveat" style="font-family: 'Caveat';">Caveat</option>
-                        <option value="Indie Flower" style="font-family: 'Indie Flower';">Indie Flower</option>
-                        <option value="Shadows Into Light" style="font-family: 'Shadows Into Light';">Shadows Into Light</option>
-                        <option value="Permanent Marker" style="font-family: 'Permanent Marker';">Permanent Marker</option>
-                        <option value="Roboto" style="font-family: 'Roboto';">Roboto (Genérica)</option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label for="fontSize" class="block text-sm font-medium text-gray-700 mb-1">Tamanho da Fonte: <span id="fontSizeValue" class="font-semibold">24pt</span></label>
-                    <input type="range" id="fontSize" min="12" max="72" value="24" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                    <input type="number" id="fontSizeNum" min="12" max="72" value="24" class="w-20 p-2 border border-gray-300 rounded-lg mt-2 text-center"> pt
-                </div>
-                <div class="flex items-center">
-                    <input type="checkbox" id="traceText" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked> <label for="traceText" class="ml-2 text-sm font-medium text-gray-700">Texto Tracejado</label>
-                </div>
-            </div>
-
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
-                <h2 class="text-xl font-semibold text-gray-700 mb-3">Linhas-Guia</h2>
-                <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Linha Principal:</label>
-                    <div class="flex flex-wrap gap-4">
-                        <label class="inline-flex items-center">
-                            <input type="radio" name="lineType" value="solid" checked class="form-radio text-blue-600">
-                            <span class="ml-2 text-gray-700">Sólida</span>
-                        </label>
-                        <label class="inline-flex items-center">
-                            <input type="radio" name="lineType" value="dashed" class="form-radio text-blue-600">
-                            <span class="ml-2 text-gray-700">Tracejada</span>
-                        </label>
-                        <label class="inline-flex items-center">
-                            <input type="radio" name="lineType" value="dotted" class="form-radio text-blue-600">
-                            <span class="ml-2 text-gray-700">Pontilhada</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <label for="inclineAngle" class="block text-sm font-medium text-gray-700 mb-1">Ângulo de Inclinação: <span id="inclineAngleValue" class="font-semibold">0°</span></label>
-                    <input type="range" id="inclineAngle" min="0" max="45" value="0" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                    <input type="number" id="inclineAngleNum" min="0" max="45" value="0" class="w-20 p-2 border border-gray-300 rounded-lg mt-2 text-center"> °
-                </div>
-                <div class="mb-4">
-                    <label for="xHeight" class="block text-sm font-medium text-gray-700 mb-1">Altura-X (mm): <span id="xHeightValue" class="font-semibold">4mm</span></label>
-                    <input type="range" id="xHeight" min="2" max="10" value="4" step="0.5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                    <input type="number" id="xHeightNum" min="2" max="10" value="4" step="0.5" class="w-20 p-2 border border-gray-300 rounded-lg mt-2 text-center"> mm
-                </div>
-                <div>
-                    <label for="lineColor" class="block text-sm font-medium text-gray-700 mb-1">Cor da Linha:</label>
-                    <input type="color" id="lineColor" value="#000000" class="w-full h-10 rounded-lg border border-gray-300 cursor-pointer">
-                </div>
-            </div>
-
-            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
-                <h2 class="text-xl font-semibold text-gray-700 mb-3">Layout de Página</h2>
-                <div class="mb-4">
-                    <label for="pageSize" class="block text-sm font-medium text-gray-700 mb-1">Tamanho da Página:</label>
-                    <select id="pageSize" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
-                        <option value="A4">A4 (210 x 297 mm)</option>
-                        <option value="Letter">Carta (215.9 x 279.4 mm)</option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Orientação:</label>
-                    <div class="flex gap-4">
-                        <label class="inline-flex items-center">
-                            <input type="radio" name="orientation" value="portrait" checked class="form-radio text-blue-600">
-                            <span class="ml-2 text-gray-700">Retrato</span>
-                        </label>
-                        <label class="inline-flex items-center">
-                            <input type="radio" name="orientation" value="landscape" class="form-radio text-blue-600">
-                            <span class="ml-2 text-gray-700">Paisagem</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Newsletter Signup Placeholder -->
-            <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5 rounded-xl border border-gray-200 shadow-lg text-white text-center space-y-3">
-                <h2 class="text-xl font-semibold">Fique por Dentro!</h2>
-                <p class="text-sm">Assine a newsletter e receba dicas, novidades e 3 PDFs premium grátis!</p>
-                <input type="email" placeholder="seu.email@exemplo.com" class="w-full p-3 border border-gray-300 rounded-lg text-gray-800 focus:ring-yellow-400 focus:border-yellow-400 transition duration-150 ease-in-out" disabled>
-                <button class="w-full bg-yellow-400 hover:bg-yellow-500 text-indigo-700 font-bold py-2 px-4 rounded-lg shadow-md transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:ring-opacity-50" disabled>Assinar (Em Breve)</button>
-                <p class="text-xs opacity-80">Funcionalidade em desenvolvimento.</p>
-            </div>
-            <!-- End Newsletter Signup Placeholder -->
-
-            <button id="printSheetBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
-                Imprimir Pré-visualização Atual
-            </button>
-            <button id="openSvgPrintBtn" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 mt-4">
-                Abrir SVG (Impressão de Qualidade)
-            </button>
+                </textarea
+          >
+          <button
+            id="clearPracticeTextBtn"
+            class="mt-2 w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out"
+          >
+            Limpar Texto
+          </button>
         </div>
 
-        <div class="lg:w-2/3 w-full bg-gray-200 rounded-xl shadow-xl p-4 flex items-center justify-center overflow-hidden relative preview-section">
-            <div id="preview-page-container" class="bg-white shadow-md rounded-lg overflow-hidden relative border border-gray-300">
-                <p id="overflowMessage" class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-gray-700 bg-yellow-100 border border-yellow-300 px-3 py-1 rounded-md shadow hidden">Texto continua em páginas seguintes...</p>
-            </div>
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-3">
+            Configurações da API Gemini
+          </h2>
+          <label
+            for="geminiApiKeyInput"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Sua Chave de API Gemini:</label
+          >
+          <input
+            type="password"
+            id="geminiApiKeyInput"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out mb-2"
+            placeholder="Insira sua chave de API aqui"
+          />
+          <div class="flex gap-2 mb-2">
+            <button
+              id="saveApiKeyBtn"
+              class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out"
+            >
+              Salvar
+            </button>
+            <button
+              id="clearApiKeyBtn"
+              class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out"
+            >
+              Limpar
+            </button>
+          </div>
+          <p id="apiKeyStatus" class="text-sm text-gray-600 italic">
+            Nenhuma chave carregada.
+          </p>
+          <p class="text-xs text-gray-500 mt-2">
+            <strong class="text-red-600">Atenção:</strong> Armazenar chaves de
+            API no navegador não é totalmente seguro para aplicações de
+            produção. Use com cautela.
+          </p>
+          <p class="text-xs text-gray-500 mt-2">
+            Você pode obter uma chave de API gratuita no Google AI Studio:
+            <a
+              href="https://aistudio.google.com/apikey"
+              target="_blank"
+              class="text-blue-600 hover:underline"
+              >aistudio.google.com/apikey</a
+            >
+          </p>
         </div>
+
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-3">
+            Gerador de Citações (IA)
+          </h2>
+          <label
+            for="quoteTheme"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Tema das Citações (ex: "amor", "sucesso", "natureza"):</label
+          >
+          <input
+            type="text"
+            id="quoteTheme"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out mb-3"
+            placeholder="Deixe em branco para citações filosóficas"
+          />
+          <button
+            id="generateQuotesBtn"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50"
+          >
+            Gerar Citações
+          </button>
+          <p id="loadingQuotes" class="text-center text-gray-600 mt-2 hidden">
+            Gerando citações...
+          </p>
+          <p id="errorQuotes" class="text-center text-red-500 mt-2 hidden">
+            Erro ao gerar citações.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-3">
+            Definições de Fonte
+          </h2>
+          <div class="mb-4">
+            <label
+              for="fontFamily"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Família da Fonte:</label
+            >
+            <select
+              id="fontFamily"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            >
+              <option
+                value="Dancing Script"
+                style="font-family: &quot;Dancing Script&quot;"
+              >
+                Dancing Script
+              </option>
+              <option
+                value="Great Vibes"
+                style="font-family: &quot;Great Vibes&quot;"
+              >
+                Great Vibes
+              </option>
+              <option value="Allura" style="font-family: &quot;Allura&quot;">
+                Allura
+              </option>
+              <option
+                value="Pacifico"
+                style="font-family: &quot;Pacifico&quot;"
+              >
+                Pacifico
+              </option>
+              <option value="Caveat" style="font-family: &quot;Caveat&quot;">
+                Caveat
+              </option>
+              <option
+                value="Indie Flower"
+                style="font-family: &quot;Indie Flower&quot;"
+              >
+                Indie Flower
+              </option>
+              <option
+                value="Shadows Into Light"
+                style="font-family: &quot;Shadows Into Light&quot;"
+              >
+                Shadows Into Light
+              </option>
+              <option
+                value="Permanent Marker"
+                style="font-family: &quot;Permanent Marker&quot;"
+              >
+                Permanent Marker
+              </option>
+              <option value="Roboto" style="font-family: &quot;Roboto&quot;">
+                Roboto (Genérica)
+              </option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label
+              for="fontSize"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Tamanho da Fonte:
+              <span id="fontSizeValue" class="font-semibold">24pt</span></label
+            >
+            <input
+              type="range"
+              id="fontSize"
+              min="12"
+              max="72"
+              value="24"
+              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
+            <input
+              type="number"
+              id="fontSizeNum"
+              min="12"
+              max="72"
+              value="24"
+              class="w-20 p-2 border border-gray-300 rounded-lg mt-2 text-center"
+            />
+            pt
+          </div>
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="traceText"
+              class="form-checkbox h-5 w-5 text-blue-600 rounded"
+              checked
+            />
+            <label
+              for="traceText"
+              class="ml-2 text-sm font-medium text-gray-700"
+              >Texto Tracejado</label
+            >
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-3">Linhas-Guia</h2>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Tipo de Linha Principal:</label
+            >
+            <div class="flex flex-wrap gap-4">
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="lineType"
+                  value="solid"
+                  checked
+                  class="form-radio text-blue-600"
+                />
+                <span class="ml-2 text-gray-700">Sólida</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="lineType"
+                  value="dashed"
+                  class="form-radio text-blue-600"
+                />
+                <span class="ml-2 text-gray-700">Tracejada</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="lineType"
+                  value="dotted"
+                  class="form-radio text-blue-600"
+                />
+                <span class="ml-2 text-gray-700">Pontilhada</span>
+              </label>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label
+              for="inclineAngle"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Ângulo de Inclinação:
+              <span id="inclineAngleValue" class="font-semibold"
+                >0°</span
+              ></label
+            >
+            <input
+              type="range"
+              id="inclineAngle"
+              min="0"
+              max="45"
+              value="0"
+              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
+            <input
+              type="number"
+              id="inclineAngleNum"
+              min="0"
+              max="45"
+              value="0"
+              class="w-20 p-2 border border-gray-300 rounded-lg mt-2 text-center"
+            />
+            °
+          </div>
+          <div class="mb-4">
+            <label
+              for="xHeight"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Altura-X (mm):
+              <span id="xHeightValue" class="font-semibold">4mm</span></label
+            >
+            <input
+              type="range"
+              id="xHeight"
+              min="2"
+              max="10"
+              value="4"
+              step="0.5"
+              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+            />
+            <input
+              type="number"
+              id="xHeightNum"
+              min="2"
+              max="10"
+              value="4"
+              step="0.5"
+              class="w-20 p-2 border border-gray-300 rounded-lg mt-2 text-center"
+            />
+            mm
+          </div>
+          <div>
+            <label
+              for="lineColor"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Cor da Linha:</label
+            >
+            <input
+              type="color"
+              id="lineColor"
+              value="#000000"
+              class="w-full h-10 rounded-lg border border-gray-300 cursor-pointer"
+            />
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-3">
+            Layout de Página
+          </h2>
+          <div class="mb-4">
+            <label
+              for="pageSize"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Tamanho da Página:</label
+            >
+            <select
+              id="pageSize"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+            >
+              <option value="A4">A4 (210 x 297 mm)</option>
+              <option value="Letter">Carta (215.9 x 279.4 mm)</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Orientação:</label
+            >
+            <div class="flex gap-4">
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="orientation"
+                  value="portrait"
+                  checked
+                  class="form-radio text-blue-600"
+                />
+                <span class="ml-2 text-gray-700">Retrato</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="orientation"
+                  value="landscape"
+                  class="form-radio text-blue-600"
+                />
+                <span class="ml-2 text-gray-700">Paisagem</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Newsletter Signup Placeholder -->
+        <div
+          class="bg-gradient-to-r from-blue-500 to-indigo-600 p-5 rounded-xl border border-gray-200 shadow-lg text-white text-center space-y-3"
+        >
+          <h2 class="text-xl font-semibold">Fique por Dentro!</h2>
+          <p class="text-sm">
+            Assine a newsletter e receba dicas, novidades e 3 PDFs premium
+            grátis!
+          </p>
+          <input
+            type="email"
+            placeholder="seu.email@exemplo.com"
+            class="w-full p-3 border border-gray-300 rounded-lg text-gray-800 focus:ring-yellow-400 focus:border-yellow-400 transition duration-150 ease-in-out"
+            disabled
+          />
+          <button
+            class="w-full bg-yellow-400 hover:bg-yellow-500 text-indigo-700 font-bold py-2 px-4 rounded-lg shadow-md transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:ring-opacity-50"
+            disabled
+          >
+            Assinar (Em Breve)
+          </button>
+          <p class="text-xs opacity-80">Funcionalidade em desenvolvimento.</p>
+        </div>
+        <!-- End Newsletter Signup Placeholder -->
+
+        <button
+          id="printSheetBtn"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50"
+        >
+          Imprimir Pré-visualização Atual
+        </button>
+        <button
+          id="openSvgPrintBtn"
+          class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 mt-4"
+        >
+          Abrir SVG (Impressão de Qualidade)
+        </button>
+      </div>
+
+      <div
+        class="lg:w-2/3 w-full bg-gray-200 rounded-xl shadow-xl p-4 flex items-center justify-center overflow-hidden relative preview-section"
+      >
+        <div
+          id="preview-page-container"
+          class="bg-white shadow-md rounded-lg overflow-hidden relative border border-gray-300"
+        >
+          <p
+            id="overflowMessage"
+            class="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs text-gray-700 bg-yellow-100 border border-yellow-300 px-3 py-1 rounded-md shadow hidden"
+          >
+            Texto continua em páginas seguintes...
+          </p>
+        </div>
+      </div>
     </div>
 
     <script>
-        // Obter referências aos elementos da UI
-        const practiceText = document.getElementById('practiceText');
-        const fontFamily = document.getElementById('fontFamily');
-        const fontSize = document.getElementById('fontSize');
-        const fontSizeNum = document.getElementById('fontSizeNum');
-        const fontSizeValue = document.getElementById('fontSizeValue');
-        const traceTextCheckbox = document.getElementById('traceText');
-        const lineTypeRadios = document.querySelectorAll('input[name="lineType"]');
-        const inclineAngle = document.getElementById('inclineAngle');
-        const inclineAngleNum = document.getElementById('inclineAngleNum');
-        const inclineAngleValue = document.getElementById('inclineAngleValue');
-        const xHeight = document.getElementById('xHeight');
-        const xHeightNum = document.getElementById('xHeightNum');
-        const xHeightValue = document.getElementById('xHeightValue');
-        const lineColor = document.getElementById('lineColor');
-        const pageSize = document.getElementById('pageSize');
-        const orientationRadios = document.querySelectorAll('input[name="orientation"]');
-        const previewPageContainer = document.getElementById('preview-page-container');
-        const printSheetBtn = document.getElementById('printSheetBtn');
-        const openSvgPrintBtn = document.getElementById('openSvgPrintBtn');
-        const overflowMessage = document.getElementById('overflowMessage');
-        const clearPracticeTextBtn = document.getElementById('clearPracticeTextBtn');
+      // Obter referências aos elementos da UI
+      const practiceText = document.getElementById("practiceText");
+      const fontFamily = document.getElementById("fontFamily");
+      const fontSize = document.getElementById("fontSize");
+      const fontSizeNum = document.getElementById("fontSizeNum");
+      const fontSizeValue = document.getElementById("fontSizeValue");
+      const traceTextCheckbox = document.getElementById("traceText");
+      const lineTypeRadios = document.querySelectorAll(
+        'input[name="lineType"]',
+      );
+      const inclineAngle = document.getElementById("inclineAngle");
+      const inclineAngleNum = document.getElementById("inclineAngleNum");
+      const inclineAngleValue = document.getElementById("inclineAngleValue");
+      const xHeight = document.getElementById("xHeight");
+      const xHeightNum = document.getElementById("xHeightNum");
+      const xHeightValue = document.getElementById("xHeightValue");
+      const lineColor = document.getElementById("lineColor");
+      const pageSize = document.getElementById("pageSize");
+      const orientationRadios = document.querySelectorAll(
+        'input[name="orientation"]',
+      );
+      const previewPageContainer = document.getElementById(
+        "preview-page-container",
+      );
+      const printSheetBtn = document.getElementById("printSheetBtn");
+      const openSvgPrintBtn = document.getElementById("openSvgPrintBtn");
+      const overflowMessage = document.getElementById("overflowMessage");
+      const clearPracticeTextBtn = document.getElementById(
+        "clearPracticeTextBtn",
+      );
 
-        // Elementos para a funcionalidade de IA e API Key
-        const geminiApiKeyInput = document.getElementById('geminiApiKeyInput');
-        const saveApiKeyBtn = document.getElementById('saveApiKeyBtn');
-        const clearApiKeyBtn = document.getElementById('clearApiKeyBtn');
-        const apiKeyStatus = document.getElementById('apiKeyStatus');
-        const quoteThemeInput = document.getElementById('quoteTheme');
-        const generateQuotesBtn = document.getElementById('generateQuotesBtn');
-        const loadingQuotesIndicator = document.getElementById('loadingQuotes');
-        const errorQuotesIndicator = document.getElementById('errorQuotes');
+      // Elementos para a funcionalidade de IA e API Key
+      const geminiApiKeyInput = document.getElementById("geminiApiKeyInput");
+      const saveApiKeyBtn = document.getElementById("saveApiKeyBtn");
+      const clearApiKeyBtn = document.getElementById("clearApiKeyBtn");
+      const apiKeyStatus = document.getElementById("apiKeyStatus");
+      const quoteThemeInput = document.getElementById("quoteTheme");
+      const generateQuotesBtn = document.getElementById("generateQuotesBtn");
+      const loadingQuotesIndicator = document.getElementById("loadingQuotes");
+      const errorQuotesIndicator = document.getElementById("errorQuotes");
 
-        let geminiApiKey = ""; // Variável para armazenar a chave de API
+      let geminiApiKey = ""; // Variável para armazenar a chave de API
 
-        // Função para converter milímetros para pontos (1mm = 2.83465pt)
-        function mmToPt(mm) {
-            return mm * 2.83465;
+      // Função para converter milímetros para pontos (1mm = 2.83465pt)
+      function mmToPt(mm) {
+        return mm * 2.83465;
+      }
+
+      /**
+       * Divide um texto em linhas para que cada linha se ajuste a uma largura máxima.
+       * @param {string} text O texto a ser dividido.
+       * @param {number} maxWidth A largura máxima permitida para cada linha em pontos.
+       * @param {string} fontStyle A família da fonte a ser usada para medição.
+       * @param {number} fontSize O tamanho da fonte em pontos.
+       * @returns {string[]} Um array de strings, onde cada string é uma linha de texto.
+       */
+      function splitTextIntoLines(text, maxWidth, fontStyle, fontSize) {
+        const lines = [];
+        const paragraphs = text.split("\n"); // Preserve explicit newlines from textarea
+
+        // Create a temporary SVG text element to measure text width
+        const tempSvg = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "svg",
+        );
+        const tempTextElement = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "text",
+        );
+        tempTextElement.style.fontFamily = fontStyle;
+        tempTextElement.style.fontSize = `${fontSize}pt`;
+        tempSvg.style.position = "absolute"; // Hide from view
+        tempSvg.style.visibility = "hidden";
+        tempSvg.style.height = "0"; // Don't take up space
+        tempSvg.style.width = "0";
+        tempSvg.appendChild(tempTextElement);
+        document.body.appendChild(tempSvg); // Temporarily append to body to get computed styles
+
+        for (const paragraph of paragraphs) {
+          const words = paragraph.split(" ");
+          let currentLine = "";
+
+          for (let i = 0; i < words.length; i++) {
+            const testLine =
+              currentLine === "" ? words[i] : currentLine + " " + words[i];
+            tempTextElement.textContent = testLine;
+            const textWidth = tempTextElement.getComputedTextLength();
+
+            if (textWidth > maxWidth && currentLine !== "") {
+              lines.push(currentLine);
+              currentLine = words[i];
+            } else {
+              currentLine = testLine;
+            }
+          }
+          // Add any remaining text in the buffer (last line of paragraph)
+          if (currentLine !== "") {
+            lines.push(currentLine);
+          } else if (paragraph === "") {
+            // If it was an empty line in the input, add an empty line to output
+            lines.push("");
+          }
+        }
+        document.body.removeChild(tempSvg); // Remove temporary SVG
+        return lines;
+      }
+
+      // Função para gerar e atualizar a pré-visualização SVG
+      function updatePreview() {
+        // Obter os valores atuais da UI
+        const textContent = practiceText.value;
+        const currentFontFamily = fontFamily.value;
+        const currentFontSize = parseFloat(fontSize.value);
+        const isTextTraced = traceTextCheckbox.checked;
+        const currentLineType = document.querySelector(
+          'input[name="lineType"]:checked',
+        ).value;
+        const currentInclineAngle = parseFloat(inclineAngle.value);
+        const currentXHeight = parseFloat(xHeight.value); // mm
+        const currentLineColor = lineColor.value;
+        const currentPaperSize = pageSize.value;
+        const currentOrientation = document.querySelector(
+          'input[name="orientation"]:checked',
+        ).value; // Obter orientação
+
+        // Definir dimensões da página em pontos (pt)
+        let pageWidthMm, pageHeightMm; // Dimensões base em mm
+
+        if (currentPaperSize === "A4") {
+          pageWidthMm = 210;
+          pageHeightMm = 297;
+        } else {
+          // Letter
+          pageWidthMm = 215.9;
+          pageHeightMm = 279.4;
         }
 
-        /**
-         * Divide um texto em linhas para que cada linha se ajuste a uma largura máxima.
-         * @param {string} text O texto a ser dividido.
-         * @param {number} maxWidth A largura máxima permitida para cada linha em pontos.
-         * @param {string} fontStyle A família da fonte a ser usada para medição.
-         * @param {number} fontSize O tamanho da fonte em pontos.
-         * @returns {string[]} Um array de strings, onde cada string é uma linha de texto.
-         */
-        function splitTextIntoLines(text, maxWidth, fontStyle, fontSize) {
-            const lines = [];
-            const paragraphs = text.split('\n'); // Preserve explicit newlines from textarea
-
-            // Create a temporary SVG text element to measure text width
-            const tempSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-            const tempTextElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
-            tempTextElement.style.fontFamily = fontStyle;
-            tempTextElement.style.fontSize = `${fontSize}pt`;
-            tempSvg.style.position = 'absolute'; // Hide from view
-            tempSvg.style.visibility = 'hidden';
-            tempSvg.style.height = '0'; // Don't take up space
-            tempSvg.style.width = '0';
-            tempSvg.appendChild(tempTextElement);
-            document.body.appendChild(tempSvg); // Temporarily append to body to get computed styles
-
-            for (const paragraph of paragraphs) {
-                const words = paragraph.split(' ');
-                let currentLine = '';
-
-                for (let i = 0; i < words.length; i++) {
-                    const testLine = currentLine === '' ? words[i] : currentLine + ' ' + words[i];
-                    tempTextElement.textContent = testLine;
-                    const textWidth = tempTextElement.getComputedTextLength();
-
-                    if (textWidth > maxWidth && currentLine !== '') {
-                        lines.push(currentLine);
-                        currentLine = words[i];
-                    } else {
-                        currentLine = testLine;
-                    }
-                }
-                // Add any remaining text in the buffer (last line of paragraph)
-                if (currentLine !== '') {
-                    lines.push(currentLine);
-                } else if (paragraph === '') {
-                    // If it was an empty line in the input, add an empty line to output
-                    lines.push('');
-                }
-            }
-            document.body.removeChild(tempSvg); // Remove temporary SVG
-            return lines;
+        // Inverter dimensões se a orientação for paisagem
+        if (currentOrientation === "landscape") {
+          [pageWidthMm, pageHeightMm] = [pageHeightMm, pageWidthMm];
         }
 
+        // Converter dimensões em mm para pontos para atributos SVG
+        const pageWidthPt = mmToPt(pageWidthMm);
+        const pageHeightPt = mmToPt(pageHeightMm);
 
-        // Função para gerar e atualizar a pré-visualização SVG
-        function updatePreview() {
-            // Obter os valores atuais da UI
-            const textContent = practiceText.value;
-            const currentFontFamily = fontFamily.value;
-            const currentFontSize = parseFloat(fontSize.value);
-            const isTextTraced = traceTextCheckbox.checked;
-            const currentLineType = document.querySelector('input[name="lineType"]:checked').value;
-            const currentInclineAngle = parseFloat(inclineAngle.value);
-            const currentXHeight = parseFloat(xHeight.value); // mm
-            const currentLineColor = lineColor.value;
-            const currentPaperSize = pageSize.value;
-            const currentOrientation = document.querySelector('input[name="orientation"]:checked').value; // Obter orientação
+        // Atualizar tamanho do contêiner de pré-visualização HTML usando valores em mm
+        previewPageContainer.style.width = `${pageWidthMm}mm`;
+        previewPageContainer.style.height = `${pageHeightMm}mm`;
 
-            // Definir dimensões da página em pontos (pt)
-            let pageWidthMm, pageHeightMm; // Dimensões base em mm
-            
-            if (currentPaperSize === 'A4') {
-                pageWidthMm = 210;
-                pageHeightMm = 297;
-            } else { // Letter
-                pageWidthMm = 215.9;
-                pageHeightMm = 279.4;
-            }
+        // Definir variáveis CSS para a media query de impressão usando valores em mm
+        document.documentElement.style.setProperty(
+          "--print-page-width",
+          `${pageWidthMm}mm`,
+        );
+        document.documentElement.style.setProperty(
+          "--print-page-height",
+          `${pageHeightMm}mm`,
+        );
 
-            // Inverter dimensões se a orientação for paisagem
-            if (currentOrientation === 'landscape') {
-                [pageWidthMm, pageHeightMm] = [pageHeightMm, pageWidthMm];
-            }
-            
-            // Converter dimensões em mm para pontos para atributos SVG
-            const pageWidthPt = mmToPt(pageWidthMm);
-            const pageHeightPt = mmToPt(pageHeightMm);
+        // Criar elemento SVG
+        const svg = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "svg",
+        );
+        svg.setAttribute("id", "calligraphy-svg");
+        svg.setAttribute("width", `${pageWidthPt}pt`); // Largura SVG em pontos
+        svg.setAttribute("height", `${pageHeightPt}pt`); // Altura SVG em pontos
+        svg.setAttribute("viewBox", `0 0 ${pageWidthPt} ${pageHeightPt}`); // ViewBox corresponde às dimensões em pontos
+        svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
+        svg.classList.add("w-full", "h-full"); // Classes Tailwind para responsividade dentro do contêiner
 
-            // Atualizar tamanho do contêiner de pré-visualização HTML usando valores em mm
-            previewPageContainer.style.width = `${pageWidthMm}mm`;
-            previewPageContainer.style.height = `${pageHeightMm}mm`;
-
-            // Definir variáveis CSS para a media query de impressão usando valores em mm
-            document.documentElement.style.setProperty('--print-page-width', `${pageWidthMm}mm`);
-            document.documentElement.style.setProperty('--print-page-height', `${pageHeightMm}mm`);
-
-            // Criar elemento SVG
-            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-            svg.setAttribute('id', 'calligraphy-svg');
-            svg.setAttribute('width', `${pageWidthPt}pt`); // Largura SVG em pontos
-            svg.setAttribute('height', `${pageHeightPt}pt`); // Altura SVG em pontos
-            svg.setAttribute('viewBox', `0 0 ${pageWidthPt} ${pageHeightPt}`); // ViewBox corresponde às dimensões em pontos
-            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-            svg.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
-            svg.classList.add('w-full', 'h-full'); // Classes Tailwind para responsividade dentro do contêiner
-
-            // Adicionar estilos básicos ao SVG para texto e linhas
-            const style = document.createElementNS("http://www.w3.org/2000/svg", "style");
-            style.textContent = `
+        // Adicionar estilos básicos ao SVG para texto e linhas
+        const style = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "style",
+        );
+        style.textContent = `
                 text {
                     font-family: '${currentFontFamily}', cursive; /* Usando Google Font */
                     font-size: ${currentFontSize}pt;
-                    fill: ${isTextTraced ? '#d1d5db' : '#000000'}; /* Cor do texto: tracejado ou sólido */
+                    fill: ${isTextTraced ? "#d1d5db" : "#000000"}; /* Cor do texto: tracejado ou sólido */
                     white-space: pre; /* Preservar espaços em branco e quebras de linha para texto dentro das linhas */
                 }
                 .guide-line-main {
@@ -437,161 +787,233 @@
                 .dashed { stroke-dasharray: 5 5; }
                 .dotted { stroke-dasharray: 1 3; }
             `;
-            svg.appendChild(style);
+        svg.appendChild(style);
 
+        // --- Desenhar Linhas-Guia em SVG ---
+        const xHeightPt = mmToPt(currentXHeight);
+        const ascenderHeightPt = xHeightPt * 0.8;
+        const descenderHeightPt = xHeightPt * 0.7;
+        const lineSpacingBetweenBlocks = mmToPt(5); // Espaço extra entre blocos de linha (5mm)
+        const totalLineBlockHeight =
+          ascenderHeightPt +
+          xHeightPt +
+          descenderHeightPt +
+          lineSpacingBetweenBlocks; // Distância da linha de base à linha de base
 
-            // --- Desenhar Linhas-Guia em SVG ---
-            const xHeightPt = mmToPt(currentXHeight);
-            const ascenderHeightPt = xHeightPt * 0.8;
-            const descenderHeightPt = xHeightPt * 0.7;
-            const lineSpacingBetweenBlocks = mmToPt(5); // Espaço extra entre blocos de linha (5mm)
-            const totalLineBlockHeight = ascenderHeightPt + xHeightPt + descenderHeightPt + lineSpacingBetweenBlocks; // Distância da linha de base à linha de base
+        const marginPt = mmToPt(20); // Margem de 20mm em todos os lados para o conteúdo (em pontos)
 
-            const marginPt = mmToPt(20); // Margem de 20mm em todos os lados para o conteúdo (em pontos)
+        let currentBaselineY = marginPt + ascenderHeightPt + xHeightPt;
 
-            let currentBaselineY = marginPt + ascenderHeightPt + xHeightPt;
+        // Função para criar um elemento de linha
+        const createLine = (x1, y1, x2, y2, className = "guide-line-main") => {
+          const line = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "line",
+          );
+          line.setAttribute("x1", x1);
+          line.setAttribute("y1", y1);
+          line.setAttribute("x2", x2);
+          line.setAttribute("y2", y2);
+          line.classList.add(className);
+          // Aplicar estilo de traço apenas à linha principal
+          if (className === "guide-line-main") {
+            if (currentLineType === "dashed") line.classList.add("dashed");
+            if (currentLineType === "dotted") line.classList.add("dotted");
+          }
+          return line;
+        };
 
-            // Função para criar um elemento de linha
-            const createLine = (x1, y1, x2, y2, className = 'guide-line-main') => {
-                const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                line.setAttribute('x1', x1);
-                line.setAttribute('y1', y1);
-                line.setAttribute('x2', x2);
-                line.setAttribute('y2', y2);
-                line.classList.add(className);
-                // Aplicar estilo de traço apenas à linha principal
-                if (className === 'guide-line-main') {
-                    if (currentLineType === 'dashed') line.classList.add('dashed');
-                    if (currentLineType === 'dotted') line.classList.add('dotted');
-                }
-                return line;
-            };
-
-            // Desenhar linhas-guia horizontais
-            while (currentBaselineY < pageHeightPt - marginPt) {
-                // Linha de base (principal)
-                svg.appendChild(createLine(marginPt, currentBaselineY, pageWidthPt - marginPt, currentBaselineY, 'guide-line-main'));
-                // Linha de altura-x (intermediária)
-                svg.appendChild(createLine(marginPt, currentBaselineY - xHeightPt, pageWidthPt - marginPt, currentBaselineY - xHeightPt, 'guide-line-intermediate'));
-                // Linha ascendente (topo) (intermediária)
-                svg.appendChild(createLine(marginPt, currentBaselineY - xHeightPt - ascenderHeightPt, pageWidthPt - marginPt, currentBaselineY - xHeightPt - ascenderHeightPt, 'guide-line-intermediate'));
-                // Linha descendente (fundo) (intermediária)
-                svg.appendChild(createLine(marginPt, currentBaselineY + descenderHeightPt, pageWidthPt - marginPt, currentBaselineY + descenderHeightPt, 'guide-line-intermediate'));
-                currentBaselineY += totalLineBlockHeight;
-            }
-
-            // Desenhar linhas inclinadas
-            if (currentInclineAngle > 0) {
-                const angleRad = currentInclineAngle * Math.PI / 180;
-                const tanAngle = Math.tan(angleRad);
-                const inclineLineSpacingPt = mmToPt(7); // Espaçamento horizontal de 7mm (em pontos)
-
-                const minXAtTop = marginPt - (pageHeightPt - 2 * marginPt) * tanAngle;
-                const maxXAtTop = pageWidthPt - marginPt;
-
-                for (let x_top = minXAtTop; x_top <= maxXAtTop + inclineLineSpacingPt; x_top += inclineLineSpacingPt) {
-                    const x_bottom = x_top + (pageHeightPt - 2 * marginPt) * tanAngle;
-                    svg.appendChild(createLine(x_top, marginPt, x_bottom, pageHeightPt - marginPt, 'incline-line'));
-                }
-            }
-
-            // --- Renderizar Texto em SVG ---
-            const availableWidth = pageWidthPt - 2 * marginPt;
-            const textLines = splitTextIntoLines(textContent, availableWidth, currentFontFamily, currentFontSize);
-            
-            // Posição Y inicial para o texto (alinhar com a primeira linha de base)
-            let previewTextY = marginPt + ascenderHeightPt + xHeightPt;
-            let textOverflowsPreview = false;
-
-            for (const line of textLines) {
-                // Verificar se o texto transborda a primeira página da pré-visualização
-                if (previewTextY + descenderHeightPt > pageHeightPt - marginPt) {
-                    textOverflowsPreview = true;
-                    break; // Parar de renderizar na pré-visualização
-                }
-                const textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                textElement.setAttribute('x', marginPt);
-                textElement.setAttribute('y', previewTextY);
-                textElement.textContent = line;
-                svg.appendChild(textElement);
-                previewTextY += totalLineBlockHeight; // Mover para a próxima linha de base
-            }
-
-            // Exibir mensagem de overflow se o texto não couber na pré-visualização
-            if (textOverflowsPreview) {
-                overflowMessage.classList.remove('hidden');
-            } else {
-                overflowMessage.classList.add('hidden');
-            }
-
-            // Limpar conteúdo existente e anexar novo SVG
-            previewPageContainer.innerHTML = '';
-            previewPageContainer.appendChild(svg);
-
-            // Atualizar valores do range/número para exibição
-            fontSizeValue.textContent = `${fontSize.value}pt`;
-            inclineAngleValue.textContent = `${inclineAngle.value}°`;
-            xHeightValue.textContent = `${xHeight.value}mm`;
+        // Desenhar linhas-guia horizontais
+        while (currentBaselineY < pageHeightPt - marginPt) {
+          // Linha de base (principal)
+          svg.appendChild(
+            createLine(
+              marginPt,
+              currentBaselineY,
+              pageWidthPt - marginPt,
+              currentBaselineY,
+              "guide-line-main",
+            ),
+          );
+          // Linha de altura-x (intermediária)
+          svg.appendChild(
+            createLine(
+              marginPt,
+              currentBaselineY - xHeightPt,
+              pageWidthPt - marginPt,
+              currentBaselineY - xHeightPt,
+              "guide-line-intermediate",
+            ),
+          );
+          // Linha ascendente (topo) (intermediária)
+          svg.appendChild(
+            createLine(
+              marginPt,
+              currentBaselineY - xHeightPt - ascenderHeightPt,
+              pageWidthPt - marginPt,
+              currentBaselineY - xHeightPt - ascenderHeightPt,
+              "guide-line-intermediate",
+            ),
+          );
+          // Linha descendente (fundo) (intermediária)
+          svg.appendChild(
+            createLine(
+              marginPt,
+              currentBaselineY + descenderHeightPt,
+              pageWidthPt - marginPt,
+              currentBaselineY + descenderHeightPt,
+              "guide-line-intermediate",
+            ),
+          );
+          currentBaselineY += totalLineBlockHeight;
         }
 
-        // Função para acionar a impressão do navegador (da página atual)
-        function printSheet() {
-            window.print();
+        // Desenhar linhas inclinadas
+        if (currentInclineAngle > 0) {
+          const angleRad = (currentInclineAngle * Math.PI) / 180;
+          const tanAngle = Math.tan(angleRad);
+          const inclineLineSpacingPt = mmToPt(7); // Espaçamento horizontal de 7mm (em pontos)
+
+          const minXAtTop = marginPt - (pageHeightPt - 2 * marginPt) * tanAngle;
+          const maxXAtTop = pageWidthPt - marginPt;
+
+          for (
+            let x_top = minXAtTop;
+            x_top <= maxXAtTop + inclineLineSpacingPt;
+            x_top += inclineLineSpacingPt
+          ) {
+            const x_bottom = x_top + (pageHeightPt - 2 * marginPt) * tanAngle;
+            svg.appendChild(
+              createLine(
+                x_top,
+                marginPt,
+                x_bottom,
+                pageHeightPt - marginPt,
+                "incline-line",
+              ),
+            );
+          }
         }
 
-        // Função para abrir o SVG em uma nova janela para impressão (com múltiplas páginas)
-        function openSvgInNewWindow() {
-            const textContent = practiceText.value;
-            const currentFontFamily = fontFamily.value;
-            const currentFontSize = parseFloat(fontSize.value);
-            const isTextTraced = traceTextCheckbox.checked;
-            const currentLineType = document.querySelector('input[name="lineType"]:checked').value;
-            const currentInclineAngle = parseFloat(inclineAngle.value);
-            const currentXHeight = parseFloat(xHeight.value);
-            const currentLineColor = lineColor.value;
-            const currentPaperSize = pageSize.value;
-            const currentOrientation = document.querySelector('input[name="orientation"]:checked').value;
+        // --- Renderizar Texto em SVG ---
+        const availableWidth = pageWidthPt - 2 * marginPt;
+        const textLines = splitTextIntoLines(
+          textContent,
+          availableWidth,
+          currentFontFamily,
+          currentFontSize,
+        );
 
-            let pageWidthMm, pageHeightMm;
-            if (currentPaperSize === 'A4') {
-                pageWidthMm = 210;
-                pageHeightMm = 297;
-            } else { // Letter
-                pageWidthMm = 215.9;
-                pageHeightMm = 279.4;
-            }
+        // Posição Y inicial para o texto (alinhar com a primeira linha de base)
+        let previewTextY = marginPt + ascenderHeightPt + xHeightPt;
+        let textOverflowsPreview = false;
 
-            if (currentOrientation === 'landscape') {
-                [pageWidthMm, pageHeightMm] = [pageHeightMm, pageWidthMm];
-            }
+        for (const line of textLines) {
+          // Verificar se o texto transborda a primeira página da pré-visualização
+          if (previewTextY + descenderHeightPt > pageHeightPt - marginPt) {
+            textOverflowsPreview = true;
+            break; // Parar de renderizar na pré-visualização
+          }
+          const textElement = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "text",
+          );
+          textElement.setAttribute("x", marginPt);
+          textElement.setAttribute("y", previewTextY);
+          textElement.textContent = line;
+          svg.appendChild(textElement);
+          previewTextY += totalLineBlockHeight; // Mover para a próxima linha de base
+        }
 
-            const pageWidthPt = mmToPt(pageWidthMm);
-            const pageHeightPt = mmToPt(pageHeightMm);
+        // Exibir mensagem de overflow se o texto não couber na pré-visualização
+        if (textOverflowsPreview) {
+          overflowMessage.classList.remove("hidden");
+        } else {
+          overflowMessage.classList.add("hidden");
+        }
 
-            const xHeightPt = mmToPt(currentXHeight);
-            const ascenderHeightPt = xHeightPt * 0.8;
-            const descenderHeightPt = xHeightPt * 0.7;
-            const lineSpacingBetweenBlocks = mmToPt(5);
-            const totalLineBlockHeight = ascenderHeightPt + xHeightPt + descenderHeightPt + lineSpacingBetweenBlocks;
-            const marginPt = mmToPt(20);
-            const availableWidth = pageWidthPt - 2 * marginPt;
-            const textLines = splitTextIntoLines(textContent, availableWidth, currentFontFamily, currentFontSize);
+        // Limpar conteúdo existente e anexar novo SVG
+        previewPageContainer.innerHTML = "";
+        previewPageContainer.appendChild(svg);
 
-            let allPagesHtml = '';
-            let currentPageTextLines = [];
-            let currentBaselineY = marginPt + ascenderHeightPt + xHeightPt;
+        // Atualizar valores do range/número para exibição
+        fontSizeValue.textContent = `${fontSize.value}pt`;
+        inclineAngleValue.textContent = `${inclineAngle.value}°`;
+        xHeightValue.textContent = `${xHeight.value}mm`;
+      }
 
-            const createSvgForPage = (linesToRender) => {
-                let svgPageContent = `<svg id="calligraphy-svg-print" width="${pageWidthPt}pt" height="${pageHeightPt}pt" viewBox="0 0 ${pageWidthPt} ${pageHeightPt}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">`;
-                
-                // Adicionar estilos inline para fontes e linhas DENTRO do SVG
-                svgPageContent += `<style>
+      // Função para acionar a impressão do navegador (da página atual)
+      function printSheet() {
+        window.print();
+      }
+
+      // Função para abrir o SVG em uma nova janela para impressão (com múltiplas páginas)
+      function openSvgInNewWindow() {
+        const textContent = practiceText.value;
+        const currentFontFamily = fontFamily.value;
+        const currentFontSize = parseFloat(fontSize.value);
+        const isTextTraced = traceTextCheckbox.checked;
+        const currentLineType = document.querySelector(
+          'input[name="lineType"]:checked',
+        ).value;
+        const currentInclineAngle = parseFloat(inclineAngle.value);
+        const currentXHeight = parseFloat(xHeight.value);
+        const currentLineColor = lineColor.value;
+        const currentPaperSize = pageSize.value;
+        const currentOrientation = document.querySelector(
+          'input[name="orientation"]:checked',
+        ).value;
+
+        let pageWidthMm, pageHeightMm;
+        if (currentPaperSize === "A4") {
+          pageWidthMm = 210;
+          pageHeightMm = 297;
+        } else {
+          // Letter
+          pageWidthMm = 215.9;
+          pageHeightMm = 279.4;
+        }
+
+        if (currentOrientation === "landscape") {
+          [pageWidthMm, pageHeightMm] = [pageHeightMm, pageWidthMm];
+        }
+
+        const pageWidthPt = mmToPt(pageWidthMm);
+        const pageHeightPt = mmToPt(pageHeightMm);
+
+        const xHeightPt = mmToPt(currentXHeight);
+        const ascenderHeightPt = xHeightPt * 0.8;
+        const descenderHeightPt = xHeightPt * 0.7;
+        const lineSpacingBetweenBlocks = mmToPt(5);
+        const totalLineBlockHeight =
+          ascenderHeightPt +
+          xHeightPt +
+          descenderHeightPt +
+          lineSpacingBetweenBlocks;
+        const marginPt = mmToPt(20);
+        const availableWidth = pageWidthPt - 2 * marginPt;
+        const textLines = splitTextIntoLines(
+          textContent,
+          availableWidth,
+          currentFontFamily,
+          currentFontSize,
+        );
+
+        let allPagesHtml = "";
+        let currentPageTextLines = [];
+        let currentBaselineY = marginPt + ascenderHeightPt + xHeightPt;
+
+        const createSvgForPage = (linesToRender) => {
+          let svgPageContent = `<svg id="calligraphy-svg-print" width="${pageWidthPt}pt" height="${pageHeightPt}pt" viewBox="0 0 ${pageWidthPt} ${pageHeightPt}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">`;
+
+          // Adicionar estilos inline para fontes e linhas DENTRO do SVG
+          svgPageContent += `<style>
                     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Allura&family=Pacifico&family=Roboto&family=Inter:wght@400;600;700&family=Caveat&family=Indie+Flower&family=Shadows+Into+Light&family=Permanent+Marker&display=swap');
                     
                     text {
                         font-family: '${currentFontFamily}', cursive;
                         font-size: ${currentFontSize}pt;
-                        fill: ${isTextTraced ? '#d1d5db' : '#000000'};
+                        fill: ${isTextTraced ? "#d1d5db" : "#000000"};
                         white-space: pre;
                     }
                     .guide-line-main {
@@ -611,66 +1033,76 @@
                     .dotted { stroke-dasharray: 1 3; }
                 </style>`;
 
-                // Desenhar linhas-guia horizontais para esta página
-                let pageCurrentBaselineY = marginPt + ascenderHeightPt + xHeightPt;
-                while (pageCurrentBaselineY < pageHeightPt - marginPt) {
-                    let mainLineDash = '';
-                    if (currentLineType === 'dashed') mainLineDash = 'stroke-dasharray="5 5"';
-                    if (currentLineType === 'dotted') mainLineDash = 'stroke-dasharray="1 3"';
+          // Desenhar linhas-guia horizontais para esta página
+          let pageCurrentBaselineY = marginPt + ascenderHeightPt + xHeightPt;
+          while (pageCurrentBaselineY < pageHeightPt - marginPt) {
+            let mainLineDash = "";
+            if (currentLineType === "dashed")
+              mainLineDash = 'stroke-dasharray="5 5"';
+            if (currentLineType === "dotted")
+              mainLineDash = 'stroke-dasharray="1 3"';
 
-                    svgPageContent += `<line x1="${marginPt}" y1="${pageCurrentBaselineY}" x2="${pageWidthPt - marginPt}" y2="${pageCurrentBaselineY}" class="guide-line-main" ${mainLineDash}/>`;
-                    svgPageContent += `<line x1="${marginPt}" y1="${pageCurrentBaselineY - xHeightPt}" x2="${pageWidthPt - marginPt}" y2="${pageCurrentBaselineY - xHeightPt}" class="guide-line-intermediate"/>`;
-                    svgPageContent += `<line x1="${marginPt}" y1="${pageCurrentBaselineY - xHeightPt - ascenderHeightPt}" x2="${pageWidthPt - marginPt}" y2="${pageCurrentBaselineY - xHeightPt - ascenderHeightPt}" class="guide-line-intermediate"/>`;
-                    svgPageContent += `<line x1="${marginPt}" y1="${pageCurrentBaselineY + descenderHeightPt}" x2="${pageWidthPt - marginPt}" y2="${pageCurrentBaselineY + descenderHeightPt}" class="guide-line-intermediate"/>`;
-                    pageCurrentBaselineY += totalLineBlockHeight;
-                }
+            svgPageContent += `<line x1="${marginPt}" y1="${pageCurrentBaselineY}" x2="${pageWidthPt - marginPt}" y2="${pageCurrentBaselineY}" class="guide-line-main" ${mainLineDash}/>`;
+            svgPageContent += `<line x1="${marginPt}" y1="${pageCurrentBaselineY - xHeightPt}" x2="${pageWidthPt - marginPt}" y2="${pageCurrentBaselineY - xHeightPt}" class="guide-line-intermediate"/>`;
+            svgPageContent += `<line x1="${marginPt}" y1="${pageCurrentBaselineY - xHeightPt - ascenderHeightPt}" x2="${pageWidthPt - marginPt}" y2="${pageCurrentBaselineY - xHeightPt - ascenderHeightPt}" class="guide-line-intermediate"/>`;
+            svgPageContent += `<line x1="${marginPt}" y1="${pageCurrentBaselineY + descenderHeightPt}" x2="${pageWidthPt - marginPt}" y2="${pageCurrentBaselineY + descenderHeightPt}" class="guide-line-intermediate"/>`;
+            pageCurrentBaselineY += totalLineBlockHeight;
+          }
 
-                // Desenhar linhas inclinadas para esta página
-                if (currentInclineAngle > 0) {
-                    const angleRad = currentInclineAngle * Math.PI / 180;
-                    const tanAngle = Math.tan(angleRad);
-                    const inclineLineSpacingPt = mmToPt(7);
+          // Desenhar linhas inclinadas para esta página
+          if (currentInclineAngle > 0) {
+            const angleRad = (currentInclineAngle * Math.PI) / 180;
+            const tanAngle = Math.tan(angleRad);
+            const inclineLineSpacingPt = mmToPt(7);
 
-                    const minXAtTop = marginPt - (pageHeightPt - 2 * marginPt) * tanAngle;
-                    const maxXAtTop = pageWidthPt - marginPt;
+            const minXAtTop =
+              marginPt - (pageHeightPt - 2 * marginPt) * tanAngle;
+            const maxXAtTop = pageWidthPt - marginPt;
 
-                    for (let x_top = minXAtTop; x_top <= maxXAtTop + inclineLineSpacingPt; x_top += inclineLineSpacingPt) {
-                        const x_bottom = x_top + (pageHeightPt - 2 * marginPt) * tanAngle;
-                        svgPageContent += `<line x1="${x_top}" y1="${marginPt}" x2="${x_bottom}" y2="${pageHeightPt - marginPt}" class="incline-line"/>`;
-                    }
-                }
-
-                // Renderizar texto para esta página
-                let textYForPage = marginPt + ascenderHeightPt + xHeightPt;
-                for (const line of linesToRender) {
-                    svgPageContent += `<text x="${marginPt}" y="${textYForPage}">${line}</text>`;
-                    textYForPage += totalLineBlockHeight;
-                }
-
-                svgPageContent += `</svg>`;
-                return svgPageContent;
-            };
-
-            for (let i = 0; i < textLines.length; i++) {
-                const line = textLines[i];
-                // Check if adding the current line would exceed the current page's height
-                if (currentBaselineY + descenderHeightPt > pageHeightPt - marginPt && currentPageTextLines.length > 0) {
-                    allPagesHtml += `<div class="page-container">${createSvgForPage(currentPageTextLines)}</div>`;
-                    currentPageTextLines = [];
-                    currentBaselineY = marginPt + ascenderHeightPt + xHeightPt; // Reset Y for new page
-                }
-                currentPageTextLines.push(line);
-                currentBaselineY += totalLineBlockHeight;
+            for (
+              let x_top = minXAtTop;
+              x_top <= maxXAtTop + inclineLineSpacingPt;
+              x_top += inclineLineSpacingPt
+            ) {
+              const x_bottom = x_top + (pageHeightPt - 2 * marginPt) * tanAngle;
+              svgPageContent += `<line x1="${x_top}" y1="${marginPt}" x2="${x_bottom}" y2="${pageHeightPt - marginPt}" class="incline-line"/>`;
             }
+          }
 
-            // Add the last page if there's any remaining text
-            if (currentPageTextLines.length > 0) {
-                allPagesHtml += `<div class="page-container">${createSvgForPage(currentPageTextLines)}</div>`;
-            }
+          // Renderizar texto para esta página
+          let textYForPage = marginPt + ascenderHeightPt + xHeightPt;
+          for (const line of linesToRender) {
+            svgPageContent += `<text x="${marginPt}" y="${textYForPage}">${line}</text>`;
+            textYForPage += totalLineBlockHeight;
+          }
 
-            // Abrir nova janela e escrever o conteúdo HTML com todos os SVGs
-            const newWindow = window.open('', '_blank');
-            newWindow.document.write(`
+          svgPageContent += `</svg>`;
+          return svgPageContent;
+        };
+
+        for (let i = 0; i < textLines.length; i++) {
+          const line = textLines[i];
+          // Check if adding the current line would exceed the current page's height
+          if (
+            currentBaselineY + descenderHeightPt > pageHeightPt - marginPt &&
+            currentPageTextLines.length > 0
+          ) {
+            allPagesHtml += `<div class="page-container">${createSvgForPage(currentPageTextLines)}</div>`;
+            currentPageTextLines = [];
+            currentBaselineY = marginPt + ascenderHeightPt + xHeightPt; // Reset Y for new page
+          }
+          currentPageTextLines.push(line);
+          currentBaselineY += totalLineBlockHeight;
+        }
+
+        // Add the last page if there's any remaining text
+        if (currentPageTextLines.length > 0) {
+          allPagesHtml += `<div class="page-container">${createSvgForPage(currentPageTextLines)}</div>`;
+        }
+
+        // Abrir nova janela e escrever o conteúdo HTML com todos os SVGs
+        const newWindow = window.open("", "_blank");
+        newWindow.document.write(`
                 <!DOCTYPE html>
                 <html lang="pt">
                 <head>
@@ -715,203 +1147,218 @@
                 </body>
                 </html>
             `);
-            newWindow.document.close(); // Fechar o documento para garantir que o conteúdo seja renderizado
+        newWindow.document.close(); // Fechar o documento para garantir que o conteúdo seja renderizado
 
-            // Chamar a impressão após um pequeno atraso para garantir que o conteúdo seja carregado
-            newWindow.onload = () => {
-                setTimeout(() => {
-                    newWindow.print();
-                    // newWindow.close(); // Opcional: fechar a janela após a impressão. Alguns navegadores podem bloquear isso.
-                }, 300); // Atraso maior para fontes e renderização multi-página
-            };
+        // Chamar a impressão após um pequeno atraso para garantir que o conteúdo seja carregado
+        newWindow.onload = () => {
+          setTimeout(() => {
+            newWindow.print();
+            // newWindow.close(); // Opcional: fechar a janela após a impressão. Alguns navegadores podem bloquear isso.
+          }, 300); // Atraso maior para fontes e renderização multi-página
+        };
+      }
+
+      // --- Gerenciamento da API Key ---
+      function loadApiKey() {
+        const savedKey = localStorage.getItem("geminiApiKey");
+        if (savedKey) {
+          geminiApiKey = savedKey;
+          geminiApiKeyInput.value = "********************"; // Esconder a chave por segurança
+          apiKeyStatus.textContent = "Chave carregada!";
+          apiKeyStatus.classList.remove("text-red-500", "italic");
+          apiKeyStatus.classList.add("text-green-600", "font-semibold");
+          generateQuotesBtn.disabled = false; // Habilitar botão se a chave estiver carregada
+        } else {
+          geminiApiKey = "";
+          geminiApiKeyInput.value = "";
+          apiKeyStatus.textContent = "Nenhuma chave carregada.";
+          apiKeyStatus.classList.remove("text-green-600", "font-semibold");
+          apiKeyStatus.classList.add("text-red-500", "italic");
+          generateQuotesBtn.disabled = true; // Desabilitar se não houver chave
+        }
+      }
+
+      function saveApiKey() {
+        const key = geminiApiKeyInput.value.trim();
+        if (key && key !== "********************") {
+          // Evitar salvar a string de asteriscos
+          localStorage.setItem("geminiApiKey", key);
+          geminiApiKey = key;
+          apiKeyStatus.textContent = "Chave salva com sucesso!";
+          apiKeyStatus.classList.remove("text-red-500", "italic");
+          apiKeyStatus.classList.add("text-green-600", "font-semibold");
+          geminiApiKeyInput.value = "********************"; // Esconder a chave
+          generateQuotesBtn.disabled = false;
+        } else if (key === "********************") {
+          apiKeyStatus.textContent = "Chave já carregada. Nenhuma alteração.";
+          apiKeyStatus.classList.remove("text-red-500");
+          apiKeyStatus.classList.add("text-gray-600", "italic");
+        } else {
+          apiKeyStatus.textContent = "Por favor, insira uma chave válida.";
+          apiKeyStatus.classList.remove("text-green-600");
+          apiKeyStatus.classList.add("text-red-500", "italic");
+          generateQuotesBtn.disabled = true;
+        }
+      }
+
+      function clearApiKey() {
+        localStorage.removeItem("geminiApiKey");
+        loadApiKey(); // Recarregar para resetar o estado
+        apiKeyStatus.textContent = "Chave removida.";
+        apiKeyStatus.classList.remove("text-green-600");
+        apiKeyStatus.classList.add("text-red-500", "italic");
+      }
+
+      // Função para gerar citações usando a API Gemini
+      async function generateQuotes() {
+        if (!geminiApiKey) {
+          errorQuotesIndicator.textContent =
+            "Por favor, insira e salve sua Chave de API Gemini para usar esta função.";
+          errorQuotesIndicator.classList.remove("hidden");
+          return;
         }
 
-        // --- Gerenciamento da API Key ---
-        function loadApiKey() {
-            const savedKey = localStorage.getItem('geminiApiKey');
-            if (savedKey) {
-                geminiApiKey = savedKey;
-                geminiApiKeyInput.value = "********************"; // Esconder a chave por segurança
-                apiKeyStatus.textContent = "Chave carregada!";
-                apiKeyStatus.classList.remove('text-red-500', 'italic');
-                apiKeyStatus.classList.add('text-green-600', 'font-semibold');
-                generateQuotesBtn.disabled = false; // Habilitar botão se a chave estiver carregada
-            } else {
-                geminiApiKey = "";
-                geminiApiKeyInput.value = "";
-                apiKeyStatus.textContent = "Nenhuma chave carregada.";
-                apiKeyStatus.classList.remove('text-green-600', 'font-semibold');
-                apiKeyStatus.classList.add('text-red-500', 'italic');
-                generateQuotesBtn.disabled = true; // Desabilitar se não houver chave
-            }
+        loadingQuotesIndicator.classList.remove("hidden");
+        errorQuotesIndicator.classList.add("hidden");
+        generateQuotesBtn.disabled = true;
+
+        const theme = quoteThemeInput.value.trim();
+        const promptTheme = theme === "" ? "filosóficas e inspiradoras" : theme;
+        const prompt = `Gere 20 citações famosas sobre o tema '${promptTheme}'. Para cada citação, inclua o autor. Formate cada citação em uma nova linha, seguida por um hífen e o nome do autor. Não inclua nenhuma introdução, saudação, numeração, marcadores de lista (como asteriscos ou traços iniciais) ou texto adicional antes ou depois das citações.`;
+
+        let chatHistory = [];
+        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+        const payload = { contents: chatHistory };
+        // Usa a chave de API da variável global
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiApiKey}`;
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const result = await response.json();
+
+          if (
+            result.candidates &&
+            result.candidates.length > 0 &&
+            result.candidates[0].content &&
+            result.candidates[0].content.parts &&
+            result.candidates[0].content.parts.length > 0
+          ) {
+            let generatedText = result.candidates[0].content.parts[0].text;
+
+            // Limpeza adicional: remover qualquer texto introdutório ou marcadores de lista persistentes
+            generatedText = generatedText.replace(
+              /^(?:Absolutamente! Aqui estão \d+ citações famosas sobre o (?:amor|tema '[^']+')?, com seus respectivos autores:\n+)?(?:[\*\-]\s*)?/gm,
+              "",
+            );
+            generatedText = generatedText.trim();
+            generatedText = generatedText.replace(/\n\s*\n/g, "\n");
+
+            practiceText.value = generatedText;
+            updatePreview();
+          } else {
+            console.error(
+              "Estrutura de resposta inesperada da API Gemini:",
+              result,
+            );
+            errorQuotesIndicator.textContent =
+              "Erro: Resposta inesperada da API. Verifique a chave ou o limite de uso.";
+            errorQuotesIndicator.classList.remove("hidden");
+          }
+        } catch (error) {
+          console.error("Erro ao chamar a API Gemini:", error);
+          errorQuotesIndicator.textContent = `Erro de conexão: ${error.message}. Verifique sua rede e a chave de API.`;
+          errorQuotesIndicator.classList.remove("hidden");
+        } finally {
+          loadingQuotesIndicator.classList.add("hidden");
+          generateQuotesBtn.disabled = false;
         }
+      }
 
-        function saveApiKey() {
-            const key = geminiApiKeyInput.value.trim();
-            if (key && key !== "********************") { // Evitar salvar a string de asteriscos
-                localStorage.setItem('geminiApiKey', key);
-                geminiApiKey = key;
-                apiKeyStatus.textContent = "Chave salva com sucesso!";
-                apiKeyStatus.classList.remove('text-red-500', 'italic');
-                apiKeyStatus.classList.add('text-green-600', 'font-semibold');
-                geminiApiKeyInput.value = "********************"; // Esconder a chave
-                generateQuotesBtn.disabled = false;
-            } else if (key === "********************") {
-                apiKeyStatus.textContent = "Chave já carregada. Nenhuma alteração.";
-                apiKeyStatus.classList.remove('text-red-500');
-                apiKeyStatus.classList.add('text-gray-600', 'italic');
-            } else {
-                apiKeyStatus.textContent = "Por favor, insira uma chave válida.";
-                apiKeyStatus.classList.remove('text-green-600');
-                apiKeyStatus.classList.add('text-red-500', 'italic');
-                generateQuotesBtn.disabled = true;
-            }
-        }
-
-        function clearApiKey() {
-            localStorage.removeItem('geminiApiKey');
-            loadApiKey(); // Recarregar para resetar o estado
-            apiKeyStatus.textContent = "Chave removida.";
-            apiKeyStatus.classList.remove('text-green-600');
-            apiKeyStatus.classList.add('text-red-500', 'italic');
-        }
-
-        // Função para gerar citações usando a API Gemini
-        async function generateQuotes() {
-            if (!geminiApiKey) {
-                errorQuotesIndicator.textContent = "Por favor, insira e salve sua Chave de API Gemini para usar esta função.";
-                errorQuotesIndicator.classList.remove('hidden');
-                return;
-            }
-
-            loadingQuotesIndicator.classList.remove('hidden');
-            errorQuotesIndicator.classList.add('hidden');
-            generateQuotesBtn.disabled = true; 
-
-            const theme = quoteThemeInput.value.trim();
-            const promptTheme = theme === '' ? 'filosóficas e inspiradoras' : theme;
-            const prompt = `Gere 20 citações famosas sobre o tema '${promptTheme}'. Para cada citação, inclua o autor. Formate cada citação em uma nova linha, seguida por um hífen e o nome do autor. Não inclua nenhuma introdução, saudação, numeração, marcadores de lista (como asteriscos ou traços iniciais) ou texto adicional antes ou depois das citações.`;
-
-            let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-            const payload = { contents: chatHistory };
-            // Usa a chave de API da variável global
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiApiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    let generatedText = result.candidates[0].content.parts[0].text;
-                    
-                    // Limpeza adicional: remover qualquer texto introdutório ou marcadores de lista persistentes
-                    generatedText = generatedText.replace(/^(?:Absolutamente! Aqui estão \d+ citações famosas sobre o (?:amor|tema '[^']+')?, com seus respectivos autores:\n+)?(?:[\*\-]\s*)?/gm, '');
-                    generatedText = generatedText.trim(); 
-                    generatedText = generatedText.replace(/\n\s*\n/g, '\n'); 
-
-                    practiceText.value = generatedText; 
-                    updatePreview(); 
-                } else {
-                    console.error('Estrutura de resposta inesperada da API Gemini:', result);
-                    errorQuotesIndicator.textContent = "Erro: Resposta inesperada da API. Verifique a chave ou o limite de uso.";
-                    errorQuotesIndicator.classList.remove('hidden');
-                }
-            } catch (error) {
-                console.error('Erro ao chamar a API Gemini:', error);
-                errorQuotesIndicator.textContent = `Erro de conexão: ${error.message}. Verifique sua rede e a chave de API.`;
-                errorQuotesIndicator.classList.remove('hidden');
-            } finally {
-                loadingQuotesIndicator.classList.add('hidden');
-                generateQuotesBtn.disabled = false; 
-            }
-        }
-
-
-        // Sincronizar slider e input numérico para Tamanho da Fonte
-        fontSize.addEventListener('input', () => {
-            fontSizeNum.value = fontSize.value;
-            updatePreview();
-        });
-        fontSizeNum.addEventListener('input', () => {
-            let val = parseFloat(fontSizeNum.value);
-            if (isNaN(val) || val < 12) val = 12;
-            if (val > 72) val = 72;
-            fontSize.value = val;
-            fontSizeNum.value = val;
-            updatePreview();
-        });
-
-        // Sincronizar slider e input numérico para Ângulo de Inclinação
-        inclineAngle.addEventListener('input', () => {
-            inclineAngleNum.value = inclineAngle.value;
-            updatePreview();
-        });
-        inclineAngleNum.addEventListener('input', () => {
-            let val = parseFloat(inclineAngleNum.value);
-            if (isNaN(val) || val < 0) val = 0;
-            if (val > 45) val = 45;
-            inclineAngle.value = val;
-            inclineAngleNum.value = val;
-            updatePreview();
-        });
-
-        // Sincronizar slider e input numérico para Altura-X
-        xHeight.addEventListener('input', () => {
-            xHeightNum.value = xHeight.value;
-            updatePreview();
-        });
-        xHeightNum.addEventListener('input', () => {
-            let val = parseFloat(xHeightNum.value);
-            if (isNaN(val) || val < 2) val = 2;
-            if (val > 10) val = 10;
-            xHeight.value = val;
-            xHeightNum.value = val;
-            updatePreview();
-        });
-
-        // Adicionar listeners para todos os elementos de controlo para acionar a atualização da pré-visualização
-        practiceText.addEventListener('input', updatePreview);
-        fontFamily.addEventListener('change', updatePreview);
-        traceTextCheckbox.addEventListener('change', updatePreview);
-        lineTypeRadios.forEach(radio => radio.addEventListener('change', updatePreview));
-        lineColor.addEventListener('input', updatePreview);
-        pageSize.addEventListener('change', updatePreview);
-        orientationRadios.forEach(radio => radio.addEventListener('change', updatePreview));
-
-        // Evento para o botão Imprimir Folha
-        printSheetBtn.addEventListener('click', printSheet);
-
-        // Evento para o novo botão de abrir SVG para imprimir
-        openSvgPrintBtn.addEventListener('click', openSvgInNewWindow);
-
-        // Eventos para o gerenciamento da API Key
-        saveApiKeyBtn.addEventListener('click', saveApiKey);
-        clearApiKeyBtn.addEventListener('click', clearApiKey);
-        // Habilitar/desabilitar o botão de gerar citações se o input da chave estiver vazio/preenchido
-        geminiApiKeyInput.addEventListener('input', () => {
-            generateQuotesBtn.disabled = geminiApiKeyInput.value.trim() === "";
-        });
-
-        // Evento para o novo botão de geração de citações
-        generateQuotesBtn.addEventListener('click', generateQuotes);
-
-        // Evento para o botão Limpar Texto
-        clearPracticeTextBtn.addEventListener('click', () => {
-            practiceText.value = ""; // Clear the textarea
-            updatePreview(); // Update the SVG preview
-        });
-
-        // Chamar a função de atualização inicial para renderizar o estado padrão e carregar a chave de API
-        loadApiKey(); // Carregar chave ao iniciar
+      // Sincronizar slider e input numérico para Tamanho da Fonte
+      fontSize.addEventListener("input", () => {
+        fontSizeNum.value = fontSize.value;
         updatePreview();
-    </script>
+      });
+      fontSizeNum.addEventListener("input", () => {
+        let val = parseFloat(fontSizeNum.value);
+        if (isNaN(val) || val < 12) val = 12;
+        if (val > 72) val = 72;
+        fontSize.value = val;
+        fontSizeNum.value = val;
+        updatePreview();
+      });
 
-</body>
+      // Sincronizar slider e input numérico para Ângulo de Inclinação
+      inclineAngle.addEventListener("input", () => {
+        inclineAngleNum.value = inclineAngle.value;
+        updatePreview();
+      });
+      inclineAngleNum.addEventListener("input", () => {
+        let val = parseFloat(inclineAngleNum.value);
+        if (isNaN(val) || val < 0) val = 0;
+        if (val > 45) val = 45;
+        inclineAngle.value = val;
+        inclineAngleNum.value = val;
+        updatePreview();
+      });
+
+      // Sincronizar slider e input numérico para Altura-X
+      xHeight.addEventListener("input", () => {
+        xHeightNum.value = xHeight.value;
+        updatePreview();
+      });
+      xHeightNum.addEventListener("input", () => {
+        let val = parseFloat(xHeightNum.value);
+        if (isNaN(val) || val < 2) val = 2;
+        if (val > 10) val = 10;
+        xHeight.value = val;
+        xHeightNum.value = val;
+        updatePreview();
+      });
+
+      // Adicionar listeners para todos os elementos de controlo para acionar a atualização da pré-visualização
+      practiceText.addEventListener("input", updatePreview);
+      fontFamily.addEventListener("change", updatePreview);
+      traceTextCheckbox.addEventListener("change", updatePreview);
+      lineTypeRadios.forEach((radio) =>
+        radio.addEventListener("change", updatePreview),
+      );
+      lineColor.addEventListener("input", updatePreview);
+      pageSize.addEventListener("change", updatePreview);
+      orientationRadios.forEach((radio) =>
+        radio.addEventListener("change", updatePreview),
+      );
+
+      // Evento para o botão Imprimir Folha
+      printSheetBtn.addEventListener("click", printSheet);
+
+      // Evento para o novo botão de abrir SVG para imprimir
+      openSvgPrintBtn.addEventListener("click", openSvgInNewWindow);
+
+      // Eventos para o gerenciamento da API Key
+      saveApiKeyBtn.addEventListener("click", saveApiKey);
+      clearApiKeyBtn.addEventListener("click", clearApiKey);
+      // Habilitar/desabilitar o botão de gerar citações se o input da chave estiver vazio/preenchido
+      geminiApiKeyInput.addEventListener("input", () => {
+        generateQuotesBtn.disabled = geminiApiKeyInput.value.trim() === "";
+      });
+
+      // Evento para o novo botão de geração de citações
+      generateQuotesBtn.addEventListener("click", generateQuotes);
+
+      // Evento para o botão Limpar Texto
+      clearPracticeTextBtn.addEventListener("click", () => {
+        practiceText.value = ""; // Clear the textarea
+        updatePreview(); // Update the SVG preview
+      });
+
+      // Chamar a função de atualização inicial para renderizar o estado padrão e carregar a chave de API
+      loadApiKey(); // Carregar chave ao iniciar
+      updatePreview();
+    </script>
+  </body>
 </html>
