@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-# Disallow preview-specific URLs if they become an issue, for example:
-# Disallow: /*?*preview=true
-# Disallow: /index.html?*preview=true
+Sitemap: https://franklinbaldo.github.io/letra_bonita/sitemap.xml

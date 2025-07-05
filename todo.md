@@ -27,7 +27,7 @@ This document lists potential improvements for the Letra Bonita application's Us
   - [ ] The "Gerando citações..." and "Erro ao gerar citações" messages are good. Ensure such feedback is consistently applied for any other potentially long-running or error-prone operations (though there aren't many others currently).
   - [ ] For quote generation errors, provide more specific error messages if possible (e.g., "Invalid API Key", "Network Error", "Quota Exceeded"). The current generic message is a good start.
 - **Text Area for Practice Text:**
-  - [x] Consider adding a "Clear Text" button for the practice text area.
+  - [x] Consider adding a "Clear Text" button for the practice text area. (Verified as implemented)
   - [ ] Perhaps offer a few sample texts (e.g., pangrams, classic calligraphy quotes) directly in the UI that users can load with one click, in addition to the AI generation.
 
 ## Preview Area
@@ -35,9 +35,9 @@ This document lists potential improvements for the Letra Bonita application's Us
 - **Zoom/Pan Functionality:**
   - [ ] For complex calligraphy or very small text, consider adding basic zoom and pan controls for the SVG preview area. This might be an advanced feature.
 - **"Texto continua em páginas seguintes..." Message:**
-  - [x] Make this message more prominent or ensure it's always visible when overflow occurs, perhaps by styling it more like an alert.
+  - [x] Make this message more prominent or ensure it's always visible when overflow occurs, perhaps by styling it more like an alert. (Styling enhanced for better visibility)
 - **Clarity of Print Options:**
-  - [x] The distinction between "Imprimir Folha" (prints the current browser window) and "Abrir SVG para Imprimir" (opens a new, clean SVG for printing) is crucial. Ensure the UI text clearly explains the benefit of the "Abrir SVG" option (e.g., "Melhor Qualidade de Impressão" or "Impressão Limpa - Recomendado"). The README explains this well, but the UI could be more direct.
+  - [x] The distinction between "Imprimir Folha" (prints the current browser window) and "Abrir SVG para Imprimir" (opens a new, clean SVG for printing) is crucial. Ensure the UI text clearly explains the benefit of the "Abrir SVG" option (e.g., "Melhor Qualidade de Impressão" or "Impressão Limpa - Recomendado"). The README explains this well, but the UI could be more direct. (Button text updated for clarity)
 
 ## Font Selection
 
@@ -87,7 +87,7 @@ The modern SEO landscape emphasizes user experience and valuable content, which 
   - [ ] Ensure canonical links (`<link rel="canonical">`) are correctly set for any dynamically generated routes/views.
 - [ ] **Automated Sitemaps & Robots.txt:**
   - [ ] Set up automatic generation of `sitemap.xml` during the build process.
-  - [x] Create/update `robots.txt` with appropriate directives (e.g., disallow crawling of preview-only URLs if they exist). (Basic robots.txt created)
+  - [x] Create/update `robots.txt` with appropriate directives (e.g., disallow crawling of preview-only URLs if they exist). (Basic robots.txt updated for clarity and sitemap link)
 
 **b. Structured Data (Schema.org)**
 
@@ -207,7 +207,7 @@ Align revenue models with the user funnel, leveraging organic traffic.
 
 - [ ] **Core Web Vitals & PWA-Friendly Setup:** - [ ] Investigate migrating to Vite.
       **Weeks 3-4: SEO Basics**
-- [x] **Sitemap & Robots.txt:** Implement auto-generation. (Basic static sitemap.xml and robots.txt created; auto-generation pending)
+- [x] **Sitemap & Robots.txt:** Implement auto-generation. (Basic static sitemap.xml updated and robots.txt updated; auto-generation pending)
 - [x] **Meta Tags:** Ensure OpenGraph & Twitter card meta tags are in place.
       **Weeks 5-6: Content & Schema**
 - [ ] **Landing Pages (MVP):** Create initial landing pages for "gerador de caligrafia" (PT/EN).
