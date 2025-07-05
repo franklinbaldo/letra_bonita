@@ -136,14 +136,44 @@
           display: block;
         }
       }
+
+      /* Custom slider thumb styles */
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #3b82f6; /* Tailwind blue-500 */
+        border-radius: 50%;
+        cursor: pointer;
+        margin-top: -6px; /* (track_height (8px) - thumb_height (20px)) / 2 */
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: #3b82f6; /* Tailwind blue-500 */
+        border-radius: 50%;
+        cursor: pointer;
+        border: none; /* Remove default border in Firefox */
+      }
     </style>
   </head>
   <body
     class="bg-gray-100 min-h-screen p-4 lg:p-8 flex items-start justify-center"
   >
     <div class="container mx-auto flex flex-col lg:flex-row gap-8 max-w-7xl">
+      <!-- Botão para alternar painel de controle em telas pequenas -->
+      <button
+        id="toggleControlsBtn"
+        class="lg:hidden w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md mb-4 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      >
+        Mostrar Controles
+      </button>
+
       <div
-        class="lg:w-1/3 w-full bg-white rounded-xl shadow-2xl p-6 space-y-6 control-panel"
+        id="controlPanel"
+        class="hidden lg:block lg:w-1/3 w-full bg-white rounded-xl shadow-2xl p-6 space-y-6 control-panel lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto"
       >
         <h1 class="text-3xl font-bold text-gray-800 mb-6">
           Gerador de Folhas de Caligrafia
@@ -153,7 +183,7 @@
           caligrafia personalizadas para aprimorar sua caligrafia.
         </p>
 
-        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-300 shadow-md">
           <h2 class="text-xl font-semibold text-gray-700 mb-3">
             Texto de Prática
           </h2>
@@ -192,13 +222,20 @@
           >
           <button
             id="clearPracticeTextBtn"
-            class="mt-2 w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out"
+            class="mt-2 w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
           >
             Limpar Texto
           </button>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-300 shadow-md">
+          <h2 class="text-xl font-semibold text-gray-700 mb-3">Textos de Exemplo</h2>
+          <div id="sampleTextsContainer" class="space-y-2">
+            <!-- Buttons will be dynamically added here -->
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-300 shadow-md">
           <h2 class="text-xl font-semibold text-gray-700 mb-3">
             Configurações da API Gemini
           </h2>
@@ -216,13 +253,13 @@
           <div class="flex gap-2 mb-2">
             <button
               id="saveApiKeyBtn"
-              class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out"
+              class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Salvar
             </button>
             <button
               id="clearApiKeyBtn"
-              class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out"
+              class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
             >
               Limpar
             </button>
@@ -246,7 +283,7 @@
           </p>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-300 shadow-md">
           <h2 class="text-xl font-semibold text-gray-700 mb-3">
             Gerador de Citações (IA)
           </h2>
@@ -263,7 +300,7 @@
           />
           <button
             id="generateQuotesBtn"
-            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
           >
             Gerar Citações
           </button>
@@ -275,7 +312,7 @@
           </p>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-300 shadow-md">
           <h2 class="text-xl font-semibold text-gray-700 mb-3">
             Definições de Fonte
           </h2>
@@ -376,7 +413,7 @@
           </div>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-300 shadow-md">
           <h2 class="text-xl font-semibold text-gray-700 mb-3">Linhas-Guia</h2>
           <div class="mb-4">
             <label class="block text-sm font-medium text-gray-700 mb-1"
@@ -482,7 +519,7 @@
           </div>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-sm">
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-300 shadow-md">
           <h2 class="text-xl font-semibold text-gray-700 mb-3">
             Layout de Página
           </h2>
@@ -555,13 +592,13 @@
 
         <button
           id="printSheetBtn"
-          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           Imprimir Pré-visualização Atual
         </button>
         <button
           id="openSvgPrintBtn"
-          class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition duration-200 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 mt-4"
+          class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-4"
         >
           Abrir SVG (Melhor Qualidade para Impressão)
         </button>
@@ -615,6 +652,10 @@
       const clearPracticeTextBtn = document.getElementById(
         "clearPracticeTextBtn",
       );
+
+      // Elementos para o toggle do painel de controle
+      const toggleControlsBtn = document.getElementById("toggleControlsBtn");
+      const controlPanel = document.getElementById("controlPanel");
 
       // Elementos para a funcionalidade de IA e API Key
       const geminiApiKeyInput = document.getElementById("geminiApiKeyInput");
@@ -1171,9 +1212,8 @@
         } else {
           geminiApiKey = "";
           geminiApiKeyInput.value = "";
-          apiKeyStatus.textContent = "Nenhuma chave carregada.";
-          apiKeyStatus.classList.remove("text-green-600", "font-semibold");
-          apiKeyStatus.classList.add("text-red-500", "italic");
+          apiKeyStatus.textContent = "Nenhuma chave API carregada. Obtenha uma no link abaixo para usar o Gerador de Citações.";
+          apiKeyStatus.className = "text-sm text-gray-600 italic"; // Base style
           generateQuotesBtn.disabled = true; // Desabilitar se não houver chave
         }
       }
@@ -1185,28 +1225,50 @@
           localStorage.setItem("geminiApiKey", key);
           geminiApiKey = key;
           apiKeyStatus.textContent = "Chave salva com sucesso!";
-          apiKeyStatus.classList.remove("text-red-500", "italic");
-          apiKeyStatus.classList.add("text-green-600", "font-semibold");
+          apiKeyStatus.className = "text-sm text-green-700 font-bold"; // Temporary feedback
           geminiApiKeyInput.value = "********************"; // Esconder a chave
           generateQuotesBtn.disabled = false;
+          setTimeout(() => {
+            apiKeyStatus.textContent = "Chave carregada!";
+            apiKeyStatus.className = "text-sm text-green-600 font-semibold"; // Revert to normal success state
+          }, 3000);
         } else if (key === "********************") {
-          apiKeyStatus.textContent = "Chave já carregada. Nenhuma alteração.";
-          apiKeyStatus.classList.remove("text-red-500");
-          apiKeyStatus.classList.add("text-gray-600", "italic");
+          // This case means the input still shows asterisks, implying a key is already loaded.
+          // We can provide a neutral or slightly positive feedback.
+          apiKeyStatus.textContent = "Chave API já está carregada e salva.";
+          apiKeyStatus.className = "text-sm text-gray-700 font-semibold"; // Existing key state
+          setTimeout(() => {
+             // Revert to the standard "Chave carregada!" message or keep this one if preferred.
+            apiKeyStatus.textContent = "Chave carregada!";
+            apiKeyStatus.className = "text-sm text-green-600 font-semibold";
+          }, 3000);
         } else {
-          apiKeyStatus.textContent = "Por favor, insira uma chave válida.";
-          apiKeyStatus.classList.remove("text-green-600");
-          apiKeyStatus.classList.add("text-red-500", "italic");
+          apiKeyStatus.textContent = "Por favor, insira uma chave API válida.";
+          apiKeyStatus.className = "text-sm text-red-700 font-bold"; // Temporary error feedback
           generateQuotesBtn.disabled = true;
+          setTimeout(() => {
+            // Revert to a more neutral error state or the default "no key" message
+            // For now, let's make it a persistent gentle error reminder if input is empty
+            if (geminiApiKeyInput.value.trim() === "") {
+                 apiKeyStatus.textContent = "Nenhuma chave API carregada. Obtenha uma no link abaixo para usar o Gerador de Citações.";
+                 apiKeyStatus.className = "text-sm text-gray-600 italic";
+            } else {
+                 apiKeyStatus.textContent = "Entrada de chave API inválida."; // Or similar
+                 apiKeyStatus.className = "text-sm text-red-500 italic";
+            }
+          }, 3000);
         }
       }
 
       function clearApiKey() {
         localStorage.removeItem("geminiApiKey");
-        loadApiKey(); // Recarregar para resetar o estado
-        apiKeyStatus.textContent = "Chave removida.";
-        apiKeyStatus.classList.remove("text-green-600");
-        apiKeyStatus.classList.add("text-red-500", "italic");
+        apiKeyStatus.textContent = "Chave API removida com sucesso!";
+        apiKeyStatus.className = "text-sm text-red-700 font-bold"; // Temporary feedback
+        geminiApiKeyInput.value = ""; // Clear the input field
+        generateQuotesBtn.disabled = true; // Disable generate button
+        setTimeout(() => {
+          loadApiKey(); // This will reset to "Nenhuma chave API carregada..." and set appropriate class
+        }, 3000);
       }
 
       // Função para gerar citações usando a API Gemini
@@ -1238,6 +1300,25 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),
           });
+
+          // Check if the response was not OK (e.g., 4xx, 5xx errors)
+          if (!response.ok) {
+            let errorMsg = `Erro da API: ${response.status} ${response.statusText}.`;
+            try {
+              const errorResult = await response.json();
+              if (errorResult && errorResult.error && errorResult.error.message) {
+                errorMsg = `Erro da API: ${errorResult.error.message}`;
+              }
+            } catch (e) {
+              // Failed to parse error JSON, stick with status text
+              console.warn("Não foi possível analisar a resposta de erro JSON da API:", e);
+            }
+            console.error("Erro da API Gemini:", errorMsg, response);
+            errorQuotesIndicator.textContent = errorMsg;
+            errorQuotesIndicator.classList.remove("hidden");
+            return; // Exit early
+          }
+
           const result = await response.json();
 
           if (
@@ -1260,17 +1341,19 @@
             practiceText.value = generatedText;
             updatePreview();
           } else {
+            // This case means the response was OK, but the expected data structure is missing.
             console.error(
-              "Estrutura de resposta inesperada da API Gemini:",
+              "Estrutura de resposta inesperada da API Gemini (status OK):",
               result,
             );
             errorQuotesIndicator.textContent =
-              "Erro: Resposta inesperada da API. Verifique a chave ou o limite de uso.";
+              "Erro: Resposta da API recebida, mas com formato inesperado.";
             errorQuotesIndicator.classList.remove("hidden");
           }
         } catch (error) {
-          console.error("Erro ao chamar a API Gemini:", error);
-          errorQuotesIndicator.textContent = `Erro de conexão: ${error.message}. Verifique sua rede e a chave de API.`;
+          // This catches network errors or errors during the fetch/json parsing itself
+          console.error("Erro ao chamar a API Gemini (catch):", error);
+          errorQuotesIndicator.textContent = `Erro de conexão ou processamento: ${error.message}. Verifique sua rede e a chave de API.`;
           errorQuotesIndicator.classList.remove("hidden");
         } finally {
           loadingQuotesIndicator.classList.add("hidden");
@@ -1355,6 +1438,52 @@
         practiceText.value = ""; // Clear the textarea
         updatePreview(); // Update the SVG preview
       });
+
+      // Evento para o botão de toggle do painel de controle
+      if (toggleControlsBtn && controlPanel) {
+        toggleControlsBtn.addEventListener("click", () => {
+          controlPanel.classList.toggle("hidden");
+          if (controlPanel.classList.contains("hidden")) {
+            toggleControlsBtn.textContent = "Mostrar Controles";
+          } else {
+            toggleControlsBtn.textContent = "Esconder Controles";
+          }
+        });
+      }
+
+      // --- Sample Texts Feature ---
+      const sampleTexts = [
+        { name: "Pangrama (PT)", text: "Gazeta publica hoje no jornal uma breve nota de faxina na quermesse." },
+        { name: "Pangrama (EN)", text: "The quick brown fox jumps over the lazy dog." },
+        { name: "A Prática Leva à Perfeição", text: "A prática leva à perfeição. Repita várias vezes." },
+        { name: "ABC Maiúsculas", text: "ABCDEFGHIJKLMNOPQRSTUVWXYZ" },
+        { name: "abc Minúsculas", text: "abcdefghijklmnopqrstuvwxyz" },
+        { name: "Números", text: "0123456789" },
+        { name: "Citação: Conhece-te", text: "Conhece-te a ti mesmo." }
+      ];
+
+      const sampleTextsContainer = document.getElementById('sampleTextsContainer');
+      if (sampleTextsContainer) {
+        sampleTexts.forEach(sample => {
+          const button = document.createElement('button');
+          button.textContent = sample.name; // Shorter button text
+          // Consistent styling with other secondary buttons
+          button.classList.add(
+            'w-full', 'bg-indigo-500', 'hover:bg-indigo-600', 'text-white',
+            'font-bold', 'py-2', 'px-4', 'rounded-lg', 'shadow-md',
+            'transition', 'duration-200', 'ease-in-out',
+            'focus:outline-none', 'focus:ring-2', 'focus:ring-offset-2', 'focus:ring-indigo-500',
+            'text-sm' // Making text a bit smaller to fit potentially longer names
+          );
+          button.title = `Carregar: "${sample.text.substring(0, 50)}${sample.text.length > 50 ? '...' : ''}"`; // Tooltip for full text
+          button.addEventListener('click', () => {
+            practiceText.value = sample.text;
+            updatePreview();
+          });
+          sampleTextsContainer.appendChild(button);
+        });
+      }
+      // --- End Sample Texts Feature ---
 
       // Chamar a função de atualização inicial para renderizar o estado padrão e carregar a chave de API
       loadApiKey(); // Carregar chave ao iniciar
